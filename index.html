@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>When Compute Ate Culture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f7; --bg2:#ffffff; --ink:#111114; --muted:#6b6f7b; --line:rgba(0,0,0,.09); --line2:rgba(0,0,0,.14);
+  --glass:rgba(255,255,255,.72); --glass2:rgba(255,255,255,.55); --shadow:0 18px 60px rgba(0,0,0,.10); --shadow2:0 8px 28px rgba(0,0,0,.08);
+  --blue:#0071e3; --green:#1f8f4e; --orange:#b65f00; --purple:#6b47d6; --red:#bd2b28;
+  --radius:28px; --radius2:18px;
+  --serif:'Source Serif 4', ui-serif, Georgia, serif; --sans:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', Segoe UI, sans-serif; --mono:'JetBrains Mono', 'SF Mono', Menlo, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 15% 0%, #eaf3ff 0, rgba(234,243,255,0) 38%),radial-gradient(circle at 80% 8%, #fff0df 0, rgba(255,240,223,0) 32%),linear-gradient(180deg,#fbfbfd 0,#f5f5f7 45%,#eff2f6 100%);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+em{font-style:italic}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(245,245,247,.74);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:13px 26px}
+.brand{font-weight:800;letter-spacing:-.03em;font-size:15px}
+.brand span{font-family:var(--serif);font-weight:900}
+.navlinks{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{border:1px solid var(--line);background:rgba(255,255,255,.65);padding:8px 12px;border-radius:999px;font-size:13px;color:#252934;box-shadow:0 1px 0 rgba(255,255,255,.8) inset;cursor:pointer}
+.navlinks a.active{background:#111;color:#fff;border-color:#111}
+
+/* hero */
+.hero{min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:52px 0 30px}
+.orb{position:absolute;border-radius:999px;filter:blur(8px);opacity:.66;z-index:-1}
+.orb.a{width:480px;height:480px;background:linear-gradient(135deg,#b9dcff,#fff);right:-130px;top:-90px}
+.orb.b{width:320px;height:320px;background:linear-gradient(135deg,#ffd7a9,#fff);left:-120px;bottom:60px}
+.orb.c{width:300px;height:300px;background:linear-gradient(135deg,#d9ccff,#fff);left:46%;top:-60px;opacity:.5}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.h1{font-family:var(--serif);font-size:clamp(46px,7.1vw,104px);line-height:.9;letter-spacing:-.055em;margin:0 0 26px;max-width:16ch}
+.h1 em{font-style:normal;background:linear-gradient(100deg,#111,#5a6677 45%,#0071e3 82%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:clamp(18px,1.9vw,25px);line-height:1.36;color:#303540;max-width:66ch;margin:0 0 26px}
+.lede b{font-weight:700;color:#1a1d24}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0 0}
+.stat{padding:18px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow2)}
+.stat .n{font-family:var(--serif);font-size:40px;font-weight:900;letter-spacing:-.05em;line-height:.9}
+.stat .n small{font-size:18px;font-weight:700;font-family:var(--sans);color:var(--muted)}
+.stat .t{font-size:13px;color:var(--muted);margin-top:9px;line-height:1.35}
+
+/* sections */
+.section{padding:82px 0;position:relative}
+.section h2{font-family:var(--serif);font-size:clamp(34px,4.4vw,64px);line-height:.96;letter-spacing:-.05em;margin:0 0 16px;max-width:20ch}
+.section .sub{font-size:19px;color:#4c5260;max-width:74ch;margin:0 0 30px;line-height:1.45}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.pull{font-family:var(--serif);font-size:clamp(21px,2.5vw,32px);line-height:1.28;letter-spacing:-.02em;color:#1a1d24;max-width:26ch;margin:0}
+.pull em{font-style:italic;color:var(--blue)}
+
+/* panels + cards */
+.panel{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);padding:24px}
+.panel h3{margin:0 0 8px;font-size:22px;letter-spacing:-.035em;font-weight:800}
+.panel p{color:#454b57;margin:0 0 10px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.note{background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:16px;padding:14px 16px;color:#4a505c;font-size:14px;margin-top:16px;line-height:1.5}
+.note b{color:#1a1d24}
+.warning{background:#fff7e8;border:1px solid #f2d6a7;border-radius:18px;padding:15px 17px;color:#5c3b00;margin:16px 0;font-size:14.5px;line-height:1.5}
+.warning b{color:#3d2700}
+
+/* ladder */
+.lad-detail{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);padding:26px 28px;margin-bottom:20px;min-height:150px}
+.lad-detail .tag{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
+.lad-detail .word{font-family:var(--serif);font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-.045em;line-height:.95;margin:0 0 12px}
+.lad-detail p{margin:0;color:#3a4049;font-size:17px;max-width:60ch;line-height:1.5}
+.rungs{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rung{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.02em;color:#3a3f4c;padding:11px 15px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.66);cursor:pointer;transition:.18s;white-space:nowrap}
+.rung:hover{transform:translateY(-2px);border-color:var(--line2)}
+.rung:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.rung.on{background:#111;color:#fff;border-color:#111}
+.rung.dest{border-color:var(--blue)}
+.rung.dest.on{background:linear-gradient(120deg,#0071e3,#6b47d6);border-color:transparent}
+.rung-arrow{color:var(--muted);font-size:13px}
+.lad-axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+
+/* engine */
+.engine{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;margin:8px 0 6px}
+.enode{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:22px;padding:24px 22px;text-align:center;box-shadow:var(--shadow2)}
+.enode .et{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+.enode.d .et{color:var(--green)} .enode.b .et{color:var(--blue)} .enode.r .et{color:var(--orange)}
+.enode .es{font-size:14px;color:#4c5260}
+.eflow{display:flex;align-items:center;color:var(--muted);font-size:22px}
+.loopback{display:flex;align-items:center;gap:14px;color:var(--orange);font-size:13px;font-style:italic;justify-content:center;margin:12px 0 0}
+.loopback .ln{flex:1;height:1px;max-width:340px;background:linear-gradient(90deg,var(--orange),transparent)}
+
+/* examples */
+.exlist{display:flex;flex-direction:column;gap:14px}
+.ex{background:rgba(255,255,255,.73);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);overflow:hidden;transition:border-color .25s}
+.ex.adj{background:rgba(240,237,255,.5);border-color:#d9d0f2}
+.ex-head{display:grid;grid-template-columns:48px 1fr auto;gap:18px;align-items:center;padding:22px 24px;cursor:pointer}
+.ex-head:hover{background:rgba(0,0,0,.015)}
+.ex-idx{font-family:var(--mono);font-weight:700;font-size:15px;color:var(--blue)}
+.ex.adj .ex-idx{color:var(--purple)}
+.ex-era{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);margin-bottom:4px}
+.ex-name{font-family:var(--serif);font-size:clamp(19px,2vw,25px);font-weight:800;letter-spacing:-.03em;line-height:1.08}
+.ex-name .culprit{font-family:var(--sans);font-size:13.5px;font-weight:600;color:#5a606c;margin-left:2px;display:block;letter-spacing:0;margin-top:3px}
+.ex-one{font-size:14px;color:#4c5260;max-width:64ch;margin-top:6px}
+.ex-right{justify-self:end;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.res-tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#3a3f4c;background:#f1f3f5;border:1px solid var(--line);border-radius:999px;padding:5px 9px;white-space:nowrap}
+.ex.adj .res-tag{background:#f0edff;color:#4d32a3;border-color:#d9d0f2}
+.plus{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:19px;transition:.25s;flex:none}
+.ex.open .plus{transform:rotate(45deg);color:var(--blue);border-color:var(--blue)}
+.ex-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.3,.7,.2,1)}
+.ex-inner{padding:2px 24px 26px}
+.beats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.beat{background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:16px;padding:16px}
+.beat .bl{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:7px}
+.beat.d .bl{color:var(--green)} .beat.b .bl{color:var(--blue)} .beat.r .bl{color:var(--orange)}
+.beat p{margin:0;font-size:13.5px;color:#3f4550;line-height:1.5}
+.tell{font-size:14.5px;color:#33414a;padding-left:15px;border-left:2px solid var(--blue);line-height:1.5}
+.tell em{color:var(--blue);font-style:italic}
+.ex.adj .tell{border-left-color:var(--purple)}
+.ex.adj .tell em{color:var(--purple)}
+.expand-btn{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:13px;font-weight:700;color:#252934;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:9px 15px;cursor:pointer;transition:.18s}
+.expand-btn:hover{border-color:var(--line2)}
+.expand-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.synth{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.3,.7,.2,1)}
+.synth-inner{margin-top:14px;background:rgba(0,113,227,.055);border:1px solid rgba(0,113,227,.16);border-radius:16px;padding:16px 18px}
+.ex.adj .synth-inner{background:rgba(107,71,214,.06);border-color:rgba(107,71,214,.18)}
+.synth-inner .sl{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.ex.adj .synth-inner .sl{color:var(--purple)}
+.synth-inner p{margin:0;font-size:14.5px;color:#333b45;line-height:1.55}
+.subex{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px}
+.subex .sxl{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.subex ul{margin:0;padding-left:18px;color:#3f4550}
+.subex li{margin:0 0 7px;font-size:14px;line-height:1.5}
+
+/* the shield */
+.shield-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.shield-card{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);padding:24px 26px}
+.shield-card.wound{background:linear-gradient(150deg,rgba(189,43,40,.06),rgba(255,255,255,.4));border-color:rgba(189,43,40,.18)}
+.shield-card .yr{font-family:var(--serif);font-size:52px;font-weight:900;letter-spacing:-.05em;line-height:.85;margin-bottom:12px}
+.shield-card.wound .yr{color:var(--red)}
+.shield-card.build .yr{color:var(--green)}
+.shield-card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;font-weight:800}
+.shield-card p{margin:0;color:#3f4550;font-size:15px;line-height:1.55}
+
+/* america */
+.toggle{display:inline-flex;gap:6px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:var(--shadow2);margin:4px 0 26px}
+.toggle button{border:none;background:transparent;font-family:var(--sans);font-weight:700;font-size:14px;color:#3a3f4c;padding:10px 22px;border-radius:999px;cursor:pointer;transition:.15s}
+.toggle button.on{background:#111;color:#fff}
+.toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.state-summary{max-width:66ch;font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:#33414a;min-height:64px;margin-bottom:30px}
+.state-summary b{color:var(--ink)}
+.funflation{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 14px}
+.ff{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow2)}
+.ff .n{font-family:var(--serif);font-size:44px;font-weight:900;letter-spacing:-.05em;line-height:.85}
+.ff .n small{font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)}
+.ff .t{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.4}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:26px 0 44px}
+.metric{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow2);padding:20px 22px}
+.metric .m-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.metric .m-label{font-size:14.5px;color:#33414a;font-weight:600}
+.metric .m-val{font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.metric .m-val .u{font-size:15px;color:var(--muted);font-family:var(--sans);font-weight:700;margin-left:2px}
+.bar{height:9px;border-radius:999px;background:#e7e9ee;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#9cc7ff,var(--blue));transition:width 1s cubic-bezier(.3,.7,.2,1)}
+.metric.up .bar span{background:linear-gradient(90deg,#f0b98a,var(--orange))}
+.m-foot{font-size:12.5px;color:var(--muted);margin-top:11px;line-height:1.4}
+.mrow{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;margin-bottom:9px}
+.mrow:last-child{margin-bottom:0}
+.mrow .yl{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:700}
+.mrow .mv{font-family:var(--serif);font-size:17px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* dims table */
+.dims{background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);overflow:hidden}
+.dim-row{display:grid;grid-template-columns:170px 1fr 1fr;border-top:1px solid var(--line)}
+.dim-row:first-child{border-top:none}
+.dim-key{padding:22px 20px;font-family:var(--serif);font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--ink);display:flex;align-items:center}
+.dim-then,.dim-now{padding:22px;display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--line)}
+.dim-then{background:rgba(0,113,227,.035)}
+.dim-now{background:rgba(182,95,0,.045)}
+.dim-tag{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.dim-then .dim-tag{color:var(--blue)} .dim-now .dim-tag{color:var(--orange)}
+.dim-val{font-family:var(--serif);font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.1}
+.dim-txt{font-size:13px;color:#4c5260;line-height:1.45}
+
+/* escape / paradox */
+.mythcard{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);padding:22px 24px;margin-top:16px}
+.mythcard .badge{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#f0edff;color:#4d32a3;border:1px solid #d9d0f2;border-radius:999px;padding:5px 10px;display:inline-block;margin-bottom:12px}
+.mythcard q{display:block;font-family:var(--serif);font-size:clamp(19px,2.1vw,26px);font-weight:700;font-style:italic;letter-spacing:-.02em;color:#1a1d24;line-height:1.2;margin-bottom:12px}
+.mythcard p{margin:0;color:#33414a;font-size:15px;line-height:1.55}
+.mythcard p b{color:var(--purple)}
+
+/* resolve */
+.resolve{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.r-item{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow2);padding:22px 24px}
+.r-item .rt{font-family:var(--serif);font-size:22px;font-weight:900;letter-spacing:-.03em;margin-bottom:10px}
+.r-item.crash .rt{color:var(--red)}
+.r-item.reg .rt{color:var(--blue)}
+.r-item.walk{background:linear-gradient(150deg,rgba(31,143,78,.08),rgba(255,255,255,.4));border-color:rgba(31,143,78,.22)}
+.r-item.walk .rt{color:var(--green)}
+.r-item p{margin:0;font-size:14px;color:#3f4550;line-height:1.55}
+.resolve-synth{margin-top:18px;font-family:var(--serif);font-size:clamp(18px,2vw,24px);font-style:italic;letter-spacing:-.02em;color:#1a1d24;max-width:52ch;line-height:1.3}
+
+/* shapes */
+.shapes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
+.shape{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);padding:16px 20px}
+.shape .sn{font-family:var(--mono);font-weight:700;font-size:14px;color:var(--blue)}
+.shape .stxt{font-family:var(--serif);font-size:18px;font-weight:800;letter-spacing:-.02em}
+.shape .sres{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.shape.last{grid-column:1/3;background:linear-gradient(120deg,rgba(0,113,227,.08),rgba(107,71,214,.08));border-color:rgba(0,113,227,.2)}
+.shape.last .sn,.shape.last .stxt{color:var(--ink)}
+.shape.last .stxt{background:linear-gradient(100deg,#111,#0071e3 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* wheel distillation (under the nine turns) */
+.distill{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-top:8px}
+.dstep{flex:1 1 150px;min-width:140px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow2);padding:15px 16px;display:flex;flex-direction:column;gap:6px}
+.dstep .dn{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--blue)}
+.dstep .dt{font-family:var(--serif);font-size:15px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.dstep .dr{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.dstep.last{background:linear-gradient(120deg,rgba(0,113,227,.09),rgba(107,71,214,.09));border-color:rgba(0,113,227,.22)}
+.dstep.last .dt{background:linear-gradient(100deg,#111,#0071e3 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* market map (seven verified deals) */
+.market{background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);overflow:hidden}
+.mkt-head,.mkt-row{display:grid;grid-template-columns:220px 1.15fr 1fr}
+.mkt-row{border-top:1px solid var(--line)}
+.mkt-head{background:#111}
+.mkt-head span{padding:13px 20px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#fff}
+.mkt-head span+span{border-left:1px solid rgba(255,255,255,.16)}
+.mkt-form{padding:19px 20px;display:flex;flex-direction:column;gap:5px;background:rgba(0,113,227,.04)}
+.mkt-form .mf-n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--blue)}
+.mkt-form .mf-name{font-family:var(--serif);font-size:17px;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.12}
+.mkt-deal,.mkt-logic{padding:19px 20px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:6px}
+.mkt-deal .md-name{font-size:14px;font-weight:600;color:#1a1d24;line-height:1.35}
+.mkt-deal .md-fig{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--muted)}
+.mkt-logic{font-size:13.5px;color:#4c5260;line-height:1.45}
+.mkt-row.peak .mkt-form{background:linear-gradient(120deg,rgba(0,113,227,.08),rgba(107,71,214,.08))}
+
+/* compute finale */
+.finale{background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(234,243,255,.5));border:1px solid var(--line)}
+.bignum-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 8px}
+.bignum{background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:22px;padding:20px 22px;box-shadow:var(--shadow2)}
+.bignum .n{font-family:var(--serif);font-size:40px;font-weight:900;letter-spacing:-.05em;line-height:.9}
+.bignum .t{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.4}
+.finalquote{margin-top:56px;text-align:center}
+.finalquote p{font-family:var(--serif);font-size:clamp(24px,3.4vw,46px);font-weight:900;letter-spacing:-.04em;line-height:1.12;color:var(--ink);max-width:20ch;margin:0 auto}
+.finalquote em{font-style:normal;background:linear-gradient(100deg,#111,#0071e3 75%,#6b47d6);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.footer{padding:40px 0 70px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:40px}
+.footer p{max-width:92ch;line-height:1.6;margin:0}
+.footer a{color:var(--blue)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.06s}.rv.d2{transition-delay:.12s}.rv.d3{transition-delay:.18s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.bar span{transition:none}}
+
+@media(max-width:1000px){
+  .stats,.funflation,.bignum-row{grid-template-columns:1fr 1fr}
+  .split,.shield-grid,.shapes{grid-template-columns:1fr}
+  .engine{grid-template-columns:1fr}
+  .eflow{transform:rotate(90deg);justify-content:center}
+  .resolve{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr}
+  .shape.last{grid-column:auto}
+  .navlinks{display:none}
+  .mkt-head{display:none}
+  .mkt-row{grid-template-columns:1fr}
+  .mkt-deal,.mkt-logic{border-left:none;border-top:1px dashed var(--line);padding-top:14px}
+}
+@media(max-width:680px){
+  .wrap{padding:0 16px}
+  .nav-inner{padding:12px 16px}
+  .stats,.funflation,.bignum-row{grid-template-columns:1fr}
+  .beats{grid-template-columns:1fr}
+  .dim-row{grid-template-columns:1fr 1fr}
+  .dim-key{grid-column:1/3;padding:16px 20px 4px;font-size:16px}
+  .dim-then,.dim-now{border-left:none}
+  .dim-now{border-left:1px solid var(--line)}
+  .ex-head{grid-template-columns:32px 1fr auto;gap:12px;padding:18px}
+  .ex-one{display:none}
+  .hero{min-height:auto;padding:44px 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">When Compute <span>Ate Culture</span></div>
+    <div class="navlinks" id="navlinks">
+      <a href="#thesis" data-target="thesis">Thesis</a>
+      <a href="#engine" data-target="engine">Engine</a>
+      <a href="#history" data-target="history">History</a>
+      <a href="#shield" data-target="shield">The shield</a>
+      <a href="#america" data-target="america">America</a>
+      <a href="#escape" data-target="escape">The escape</a>
+      <a href="#compute" data-target="compute">Compute</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+  <div class="wrap">
+    <div class="eyebrow">A field guide to consolidation &nbsp;/&nbsp; verified July 2026</div>
+    <h1 class="h1">The resource being captured has moved from <em>outside the person to inside the person.</em></h1>
+    <p class="lede">Every era's great consolidation races to corner the one input that, once owned, converts into power over everyone else. What changes is which resource that is, and the arc has a direction. It moves inward, from the ground you stand on to the prediction of what you will do next. This is the American balance sheet, reorganizing its supply of meaning.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">$18.8<small>T</small></div><div class="t">US household debt; about $1.3T revolving near 21% APR</div></div>
+      <div class="stat"><div class="n">2/3</div><div class="t">of household spending now buys access, not ownership. Postwar it was near 40%</div></div>
+      <div class="stat"><div class="n">+79<small>%</small></div><div class="t">real growth in the average household's credit-card balance since 1990. Postwar, the card barely existed</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- THESIS / LADDER -->
+<section class="section" id="thesis">
+  <div class="wrap">
+    <div class="kicker">01 &nbsp;/&nbsp; The thesis</div>
+    <h2>Nine names for one prize.</h2>
+    <p class="sub">The prize keeps changing costume. Land, money, trade, the news, the press, the wire, the air, the screen, and now behavior itself. Tap any name to see what it was and why owning it converted into power. Watch the prize move steadily inward, until it is no longer around the person but inside them.</p>
+
+    <div class="lad-detail rv" id="ladDetail"></div>
+    <div class="rungs rv d1" id="rungs"></div>
+    <div class="lad-axis rv d1"><span>outside the person</span><span>inside the person</span></div>
+
+    <div class="note rv d2">The same balance sheet that turned the household from owner to renter is turning the audience from customer to inventory. Same instinct, one order of magnitude closer.</div>
+  </div>
+</section>
+
+<!-- ENGINE -->
+<section class="section" id="engine">
+  <div class="wrap">
+    <div class="kicker">02 &nbsp;/&nbsp; The engine</div>
+    <h2>This is not a new pattern.</h2>
+    <p class="sub">The surface changes. Underneath runs the same three-stroke engine, and it does not stop at the end. It loops, and each loop starts from the wreckage of the last.</p>
+
+    <div class="warning rv"><b>"Bread and circuses."</b> Juvenal wrote <em>panem et circenses</em> around 100 AD, in his tenth Satire, and it was an accusation, not a description. He was mocking a Roman people who had once elected consuls and commanded armies and who now, he charged, wanted only two things: free grain and the games in the arena. The complaint was about a trade. A public that had given away its political power was being kept content with subsidized food and spectacle, so it would not notice, or mind, that it no longer ruled. The line has lasted two thousand years because the trade keeps recurring: whenever a few consolidate real control, the many are offered cheap comfort and diversion in exchange for not asking who now owns what.</div>
+
+    <div class="engine rv d1">
+      <div class="enode d"><div class="et">Deregulation</div><div class="es">Restraint is withdrawn, or a privilege is granted.</div></div>
+      <div class="eflow">&rarr;</div>
+      <div class="enode b"><div class="et">Boom</div><div class="es">A rush of access and new entrants floods in.</div></div>
+      <div class="eflow">&rarr;</div>
+      <div class="enode r"><div class="et">Reconsolidation</div><div class="es">The survivors collapse into a few.</div></div>
+    </div>
+    <div class="loopback rv d1"><span>the crest of one cycle is the deregulated ground of the next</span><span class="ln"></span></div>
+
+    <p class="sub rv d2" style="margin-top:34px">The state grants privilege or lifts a restraint, and wealth and power pool. Then that reconsolidation <em>is</em> the deregulated ground the next cycle acts on. There is no finish, only the next turn. <b>The tighter the reconsolidation, the closer the prize sits to the person.</b></p>
+    <div class="note rv d2">The shape recurs; the cause rarely does. Song China monopolized paper money to finance a war of survival, not to cash in a boom. <em>The engine names the pattern, not the motive.</em></div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="section" id="history">
+  <div class="wrap">
+    <div class="kicker">03 &nbsp;/&nbsp; Across two thousand years</div>
+    <h2>Nine turns of one wheel.</h2>
+    <p class="sub">Each turn is a different era capturing a different resource, and each runs the same loop. The header names the era; the story names the culprit. Tap any turn to watch it run, then hit Expand for the deeper synthesis. One case at the end is flagged as adjacent, a cousin of the wheel rather than a turn of it.</p>
+    <div class="exlist" id="exlist"></div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:48px 0 6px">The wheel, distilled.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 18px;max-width:72ch">Strip the eras away and the nine turns collapse into one instinct, repeating with a direction: get closer to the person until you are inside them. Each shape sits closer than the last.</p>
+    <div class="distill rv d1">
+      <div class="dstep"><div class="dn">01</div><div class="dt">Own the ground they stand on.</div><div class="dr">Land</div></div>
+      <div class="dstep"><div class="dn">02</div><div class="dt">Own the money they trade in.</div><div class="dr">Money</div></div>
+      <div class="dstep"><div class="dn">03</div><div class="dt">Own the routes their goods move through.</div><div class="dr">Trade</div></div>
+      <div class="dstep"><div class="dn">04</div><div class="dt">Own the news that reaches them first.</div><div class="dr">Information</div></div>
+      <div class="dstep"><div class="dn">05</div><div class="dt">Own the press that prints what they believe.</div><div class="dr">The press</div></div>
+      <div class="dstep"><div class="dn">06</div><div class="dt">Own the signal that enters their home.</div><div class="dr">Wire &middot; air &middot; screen</div></div>
+      <div class="dstep last"><div class="dn">07</div><div class="dt">Own the prediction of what they do next.</div><div class="dr">Behavior</div></div>
+    </div>
+    <p class="rv d2" style="font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;display:flex;justify-content:space-between;max-width:640px"><span>outside the person</span><span>inside the person</span></p>
+  </div>
+</section>
+
+<!-- THE SHIELD: 1920-1950 -->
+<section class="section" id="shield">
+  <div class="wrap">
+    <div class="kicker">04 &nbsp;/&nbsp; America, 1920 &ndash; 1950</div>
+    <h2>The shield, and the wound it answered.</h2>
+    <p class="sub">Before you can watch the owner's country come apart, you have to see that it was built on purpose, as a response to a catastrophe. The equity-rich household of 1945 was not natural or inevitable. It was engineered.</p>
+
+    <div class="shield-grid">
+      <div class="shield-card wound rv">
+        <div class="yr">1929</div>
+        <h3>The wound.</h3>
+        <p>Before the crash, a mortgage was a predatory instrument. Loans were short-term, often three to five years, non-amortizing, and structured as balloons that came due all at once. They typically demanded something near 50% down, and even then the borrower built almost no equity, held no safety net, and was fully exposed to any macro shock. When the balloon popped in 1929, it triggered a multi-decade trauma of mass foreclosures and systemic ruin.</p>
+      </div>
+      <div class="shield-card build rv d1">
+        <div class="yr">1945</div>
+        <h3>The postwar shield.</h3>
+        <p>The owner-equity household of 1945 was a deliberate, institutionalized response to that collapse. The long amortizing mortgage, federal deposit insurance, the GI Bill, employer pensions, and a tax code that rewarded acquisition were built, on purpose, to convert a nation of exposed renters into a nation of owners with equity and a cushion. But the shield was also underwritten by an anomaly: the US was the one major industrial economy to emerge from the war unbombed. The policy was real; so was the tailwind that paid for it. The "owner's country" of the next section is that shield at its peak.</p>
+      </div>
+    </div>
+    <p class="pull rv d2" style="margin-top:36px">Everything that follows is the slow <em>disassembly</em> of that shield.</p>
+  </div>
+</section>
+
+<!-- AMERICA -->
+<section class="section" id="america">
+  <div class="wrap">
+    <div class="kicker">05 &nbsp;/&nbsp; America, 1950 &rarr; 2026</div>
+    <h2>From an owner's country to a renter's country.</h2>
+    <p class="sub">The media wave is a symptom. The disease is a seventy-year migration in how Americans hold their lives: from equity to debt, from rooted to mobile, from a future you saved for to a present you finance. Wealth re-pooled at the top, land and homes aggregated into a few hands, healthcare became a private tax, and the retirement risk the employer once carried moved onto the household.</p>
+
+    <div class="toggle rv" id="seg" role="tablist">
+      <button data-y="then" class="on">1950</button>
+      <button data-y="now">2026</button>
+      <button data-y="both">Side by side</button>
+    </div>
+    <div class="state-summary rv" id="stateSummary"></div>
+
+    <div class="metrics rv" id="metrics"></div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:0 0 6px">Funflation: when deferral stops paying out.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 16px;max-width:72ch">When deferral stops paying out, spending reallocates to the present, and hope for the future thins at the same time. The 2020 response taught the lesson in miniature: the state met a shock by expanding its balance sheet roughly $4.6 trillion and reflating assets, which does little for anyone still trying to save in cash. If deferral is not rewarded and the future looks closed, spending now becomes the rational move. More fun today, and less reason to believe in tomorrow.</p>
+    <div class="funflation rv d1">
+      <div class="ff"><div class="n">66<small>%</small></div><div class="t">of spending buys access, not ownership. Postwar it was near 40%.</div></div>
+      <div class="ff"><div class="n">51<small>%</small></div><div class="t">now say the American Dream is out of reach for most people.</div></div>
+      <div class="ff"><div class="n">46<small>%</small></div><div class="t">do not expect to be financially prepared for retirement.</div></div>
+      <div class="ff"><div class="n">48<small>%</small></div><div class="t">think it likely they will outlive their savings.</div></div>
+    </div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:56px 0 6px">The whole household, then and now.</h3>
+    <p class="rv" style="color:var(--muted);margin:0 0 24px;max-width:70ch">The left column is the culture that won the war. The right is the one that inherited it.</p>
+    <div class="dims rv" id="dims"></div>
+
+    <p class="pull rv d1" style="margin:44px auto 0;text-align:center;max-width:56ch">The one number that barely moved was homeownership, near 65% then and now. But it is propped up by cohorts who bought decades ago. <em>The rate held. The meaning did not.</em></p>
+  </div>
+</section>
+
+<!-- ESCAPE / CLOSE -->
+<section class="section" id="escape">
+  <div class="wrap">
+    <div class="kicker">06 &nbsp;/&nbsp; The turn</div>
+    <h2>A foreclosed audience is sold shallower stories, and its behavior is the price.</h2>
+    <p class="sub">When a household can no longer buy a future, it buys the present, on credit. The business model tracks the balance sheet. Advertiser, then subscription, then the advertiser quietly reinstalled inside the subscription, now holding an X-ray of you. The prize is no longer the title library. It is custody of the modeled human.</p>
+
+    <div class="split">
+      <div class="panel rv">
+        <h3>Behavior becomes the asset.</h3>
+        <p>Walmart bought Vizio to match what your television watches to what you buy at the register. Experian, the credit bureau, bought its way into ad identity. Machines now duel per millisecond for a unified first-party record of you.</p>
+        <p style="margin:0">An ecosystem too small to be modeled is invisible to automated capital, so scale becomes mandatory, and the field collapses to a few. That is why the media roll-up and the ad-identity roll-up are the same event.</p>
+      </div>
+      <div class="panel rv d1">
+        <h3>Meaning lives in what stays illegible.</h3>
+        <p>The machine manufactures its own antibody. <em>Backrooms</em>, the A24 film that 20-year-old Kane Parsons adapted from his own YouTube series (itself born from a 2019 message-board creepypasta), opened to about $81 million, the biggest debut in A24's history, and Gen Z drove it: more than 80% of the second-weekend crowd was under 35.</p>
+        <p style="margin:0"><em>Obsession</em>, made by a YouTuber for under a million dollars, crossed $100 million and grew in both its second and third weekends. Consolidation is legibility. The audience is defecting to what cannot yet be modeled.</p>
+      </div>
+    </div>
+
+    <div class="mythcard rv d1">
+      <span class="badge">The paradox that makes it work</span>
+      <q>Gen Z is the most surveillance-skeptical generation on record, and the most willing to sell its data for services and experiences.</q>
+      <p>They distrust the watcher and hand over the tape anyway, because the present is the only thing still priced to buy. <b>Skepticism without leverage is just consent with extra steps.</b> The same cohort that defects to the illegible movie funds the modeled human the rest of the time.</p>
+    </div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:64px 0 8px">How it resolves.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 24px;max-width:74ch">Concentration has crested before, and it has never resolved the same way twice. What follows is never the incumbent's choice. History offers three exits. They are not mutually exclusive, and they often arrive in sequence.</p>
+    <div class="resolve rv d1">
+      <div class="r-item crash">
+        <div class="rt">The crash</div>
+        <p>The market corrects itself, violently. In 1929 the whole owner-less balance sheet detonated at once. In 2000, AOL and Time Warner wrote down about $99 billion of $165 billion within two years, the largest destruction of merger value in corporate history. Over-consolidation builds fragility into a single point, and a shock finds it. This exit is fast, involuntary, and indiscriminate about who it ruins.</p>
+      </div>
+      <div class="r-item reg">
+        <div class="rt">The regulator</div>
+        <p>The state, late and slowly, reimposes the restraint it withdrew. The Gilded Age trusts concentrated for thirty years before antitrust broke them; Standard Oil fell in 1911. The tools are stirring again: Live Nation was found an illegal monopoly, and twelve state attorneys general have already sued to block the Paramount and Warner deal. This exit is slow and political, and it depends on a public that still wants it.</p>
+      </div>
+      <div class="r-item walk">
+        <div class="rt">The walk-out</div>
+        <p>The audience simply leaves for what cannot be modeled. This is the quietest exit, and the only one already fully underway. The postwar owner-equity household was itself a walk-out, a nation refusing to go back to the exposed renter it had been in 1929. The <em>Backrooms</em> audience is a smaller, stranger version of the same refusal: value migrating to whatever the machine cannot yet price.</p>
+      </div>
+    </div>
+    <p class="resolve-synth rv d2">The crash punishes the concentration. The regulator dismantles it. The walk-out starves it. This time, all three are visible at once.</p>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:22px;font-weight:800;letter-spacing:-.03em;margin:48px 0 8px">Why the crash keeps not arriving.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 14px;max-width:74ch">Look closer at that first exit, because it has changed shape. The panics of 1873, 1893, and 1907, and the crash of 1929, all resolved the same brutal way, through liquidation and deflation. Gold was the binding constraint, so the losses fell on debtors and workers, and rescue was either private or absent. J.P. Morgan personally backstopped the U.S. Treasury in 1895 and organized the rescue of 1907 because no one else could. The populist demand of that era was for inflation, since inflation relieves the indebted. In 1971 the dollar's last tie to gold was cut, and that constraint disappeared. After that, nearly every collapse that might have liquidated the system was converted into inflation and bailout instead: the liquidity flood after 1987, the 1998 rescue of Long-Term Capital, the $700 billion TARP and the trillions the Fed lent beside it in 2008, a balance sheet that swelled toward $9 trillion by 2022, the backstop of Silicon Valley Bank in 2023. Collapse got traded for debasement.</p>
+    <p class="rv" style="color:#4c5260;margin:0 0 14px;max-width:74ch">The ratchet is strong, but it is not absolute, and integrity requires the counterexample. From 1979 to 1982 Paul Volcker's Federal Reserve chose the hard path on purpose, pushing rates toward 20 percent and driving unemployment above 10 percent to break an inflation that had reached almost 15 percent. It worked, and it was pain accepted rather than deferred. That episode is the exception that shows how rarely the choice is made. The rest of the time the state reaches for reflation, and here is the part that matters for this argument: every reflation rescues whoever already owns the assets and does little for whoever holds only wages or cash. This is the distributional critique of the modern bailout, contested but well argued, and if it holds then the tool that prevents the crash is the same one that moved the country from owner to renter.</p>
+    <p class="rv" style="margin:0 0 4px;max-width:74ch;color:#1a1d24"><b>The crash is still listed as an exit, but since 1971 the state has learned to convert it into a slow bleed instead.</b></p>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:72px 0 6px">Seven shapes of one instinct.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 22px;max-width:72ch">Strip the eras away and the instinct is bare in the deal flow itself. Every recent media consolidation is a different corporate reflex making the same move: <em>get closer to customer behavior</em>. Seven forms, one prize.</p>
+    <div class="market rv d1">
+      <div class="mkt-head"><span>Form</span><span>The deal (verified)</span><span>The data logic</span></div>
+      <div class="mkt-row">
+        <div class="mkt-form"><div class="mf-n">1</div><div class="mf-name">Consolidation</div></div>
+        <div class="mkt-deal"><div class="md-name">Paramount Skydance &ndash; Warner Bros. Discovery</div><div class="md-fig">$110B &middot; agreed, not closed</div></div>
+        <div class="mkt-logic">Enough logins to sell against Google, Meta, and Amazon.</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-form"><div class="mf-n">2</div><div class="mf-name">Triage</div></div>
+        <div class="mkt-deal"><div class="md-name">WBD spins off Discovery Global; Comcast spins off Versant, then NBCUniversal</div><div class="md-fig">2026</div></div>
+        <div class="mkt-logic">Keep the trackable engine, shed the cable. Comcast unwinds the whole conglomerate.</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-form"><div class="mf-n">3</div><div class="mf-name">Utility antitrust arbitrage</div></div>
+        <div class="mkt-deal"><div class="md-name">Charter &ndash; Cox</div><div class="md-fig">$34.5B &middot; ~38M subs</div></div>
+        <div class="mkt-logic">Own the pipe, monetize what runs through it. Defensive scale first.</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-form"><div class="mf-n">4</div><div class="mf-name">Sin subsidy</div></div>
+        <div class="mkt-deal"><div class="md-name">Fertitta &ndash; Caesars; Diller &ndash; MGM bid</div><div class="md-fig">$17.6B / $18B</div></div>
+        <div class="mkt-logic">Loyalty databases of 65&ndash;75M, matched to digital wagering.</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-form"><div class="mf-n">5</div><div class="mf-name">Closed-loop retail</div></div>
+        <div class="mkt-deal"><div class="md-name">Walmart &ndash; Vizio</div><div class="md-fig">$2.3B &middot; closed</div></div>
+        <div class="mkt-logic">Match what the TV shows (ACR) to the register receipt.</div>
+      </div>
+      <div class="mkt-row">
+        <div class="mkt-form"><div class="mf-n">6</div><div class="mf-name">Modeled self</div></div>
+        <div class="mkt-deal"><div class="md-name">EA taken private &mdash; PIF, Silver Lake, Affinity</div><div class="md-fig">$55B &middot; largest LBO ever</div></div>
+        <div class="mkt-logic">Live-service behavior, off the public books.</div>
+      </div>
+      <div class="mkt-row peak">
+        <div class="mkt-form"><div class="mf-n">7</div><div class="mf-name">Scarcity</div></div>
+        <div class="mkt-deal"><div class="md-name">Sports rights at records; festivals fold into Live Nation, ruled an illegal monopoly in 2026</div><div class="md-fig">the first form to draw antitrust</div></div>
+        <div class="mkt-logic">Own the last un-skippable attention.</div>
+      </div>
+    </div>
+    <div class="note rv d2" style="margin-top:16px"><b>The through-line, not the whole story.</b> Data explains why these deals cluster now, not every dollar of each. Charter&ndash;Cox is mostly defensive scale; the casino deals are also a leverage play; Barry Diller is buying real-world assets he calls hard for AI to disintermediate. The shapes rhyme. The motives are not identical.</div>
+    <p class="pull rv d2" style="margin-top:30px;max-width:46ch">The prize has no more distance to close. The message every operator has now internalized is the same: <em>get as close to consumer behavior as the tools allow.</em></p>
+
+    <p class="pull rv" style="margin:56px auto 0;text-align:center;max-width:34ch;font-size:clamp(24px,3vw,40px)">We were sold a future while we could still buy one. Now we are sold the present, on credit, and <em>we are the asset.</em></p>
+  </div>
+</section>
+
+<!-- COMPUTE (finale) -->
+<section class="section" id="compute">
+  <div class="wrap">
+    <div class="panel finale rv" style="padding:34px 36px">
+      <div class="kicker">07 &nbsp;/&nbsp; The finale</div>
+      <h2 style="margin-bottom:18px">When compute ate culture.</h2>
+      <p class="sub" style="margin-bottom:14px">A fortune built selling databases now owns the studio that made <em>Casablanca</em>. The framing that this is a media story misses the point. It is a compute story, and the way it was paid for gives it away.</p>
+      <p class="sub" style="margin-bottom:14px">Look at the money. The original 2024 Skydance and Paramount deal was valued at about $8 billion, and roughly $6 billion of it was Larry Ellison, the Oracle founder, personally underwriting his son David's acquisition. It was less a media merger than a father buying his son a studio.</p>
+      <p class="sub" style="margin-bottom:14px">The Warner Bros. bid only sharpens the pattern. Paramount Skydance's roughly $110 billion move on Warner Bros. Discovery (about $81 billion in equity, near $110 billion including debt) became credible only once Larry Ellison agreed to personally backstop about $40 billion of the financing, after Warner's board worried Paramount was too thin to close. The same underwriting, one order of magnitude larger. As of July 2026 the deal has shareholder approval and Justice Department clearance, but faces a twelve-state lawsuit and EU and UK review, and has not closed.</p>
+
+      <div class="bignum-row">
+        <div class="bignum"><div class="n">$6<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">of the $8B initial Paramount deal was Larry Ellison underwriting his son</div></div>
+        <div class="bignum"><div class="n">$40<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">the financing Ellison later agreed to backstop for the Warner bid</div></div>
+        <div class="bignum"><div class="n">$110<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">the Warner Bros. Discovery move, including debt</div></div>
+      </div>
+
+      <p class="sub" style="margin:22px 0 0">Why would database money want the studio that made <em>Casablanca</em>? Because the title library is no longer the asset. The asset is the audience the library assembles, rendered as a first-party, machine-legible record of behavior. Storage, identity, and compute are what price and steer that record. To this kind of capital, a studio is a very large, very loyal dataset with a back catalog attached.</p>
+    </div>
+
+    <div class="finalquote rv d1">
+      <p>Content may be king, but distribution is certainly the kingdom, and today <em>computation is the currency that finances the empire.</em></p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <footer class="footer">
+      <p>A companion to the keynote <em>When Compute Ate Culture</em>. Deal facts (Skydance and Paramount financing; the Warner Bros. Discovery bid, its approvals, and the July 2026 multi-state lawsuit; the <em>Backrooms</em> origin and box office) were verified against press reporting in July 2026. Household figures draw on the NY Fed Household Debt and Credit report, USDA food-expenditure data, CDC and NCHS fertility data, the Gallup church-membership series, and standard income, wealth, and healthcare-share estimates; several are rounded. Historical cases are illustrative, each a documented instance of the deregulation, boom, and reconsolidation cycle; the CIA cultural case is flagged as adjacent for that reason. Interpretation is the author's own.</p>
+    </footer>
+  </div>
+</section>
+
+<script>
+/* ---------- ladder data ---------- */
+var RUNGS=[
+  ["LAND","The ground itself, and the people who work it. Own the land and you own the food, the rent, and labor that has nowhere else to go. The oldest prize, and the template for every one that follows."],
+  ["MONEY","The medium of exchange, and the right to print it. Whoever controls issuance sets the price of everything else, and can quietly tax the whole society through inflation."],
+  ["TRADE","The routes and chokepoints that goods must pass through. Control the strait, the canal, or the charter, and you collect a toll on commerce you never had to produce."],
+  ["INFORMATION","Who knows first: prices, news, the shape of events. A few hours' head start on a war or a harvest is enough to corner a market before it moves."],
+  ["THE PRESS","The means of copying an idea at scale. Control reproduction and you control which thoughts travel and which die on the page they were written on."],
+  ["THE WIRE","The rails and cables that carry goods and messages. Own the network and you set the terms for everyone who has to move on it."],
+  ["THE AIRWAVES","Broadcast: the signal that enters the home uninvited. A public resource, the air itself, enclosed and handed to a few who decide what a nation hears at once."],
+  ["THE SCREEN","The images placed in front of the eyes. Attention becomes the scarce good, and the studios, then the platforms, compete to hold it."],
+  ["BEHAVIOR","The prediction of what you will do next. Not the ground you stand on, not the screen you look at, but the model of you. The first prize that lives inside the person.",true]
+];
+var rungsEl=document.getElementById('rungs');
+var ladDetail=document.getElementById('ladDetail');
+function showRung(i){
+  var r=RUNGS[i];
+  ladDetail.innerHTML='<span class="tag">Prize '+(i+1)+' of '+RUNGS.length+(r[2]?' &middot; the destination':'')+'</span>'+
+    '<div class="word">'+r[0]+'</div><p>'+r[1]+'</p>';
+  var btns=rungsEl.querySelectorAll('.rung');
+  btns.forEach(function(b,j){b.classList.toggle('on',j===i);});
+}
+RUNGS.forEach(function(r,i){
+  if(i){var a=document.createElement('span');a.className='rung-arrow';a.textContent='\u2192';rungsEl.appendChild(a);}
+  var b=document.createElement('button');
+  b.className='rung'+(r[2]?' dest':'');
+  b.type='button';b.textContent=r[0];
+  b.addEventListener('click',function(){showRung(i);});
+  rungsEl.appendChild(b);
+});
+showRung(0);
+
+/* ---------- history data ---------- */
+var EX=[
+ {era:"2nd c. BC \u2013 1st c. AD",name:"Rome",culprit:"The Roman Republic",res:"Land",
+  one:"Conquest opens the land; a few families roll it up, and the dispossessed become the mob.",
+  d:"Rome stops enforcing its own legal caps on how much public land one family may hold.",
+  b:"Conquest floods Italy with slaves and cheap provincial grain. Land opens to whoever can farm it at scale.",
+  r:"A handful of senatorial families consolidate it into vast slave estates, the latifundia. The smallholder is wiped out.",
+  tell:"The tell is <em>bread and circuses</em>. The state now has to feed and amuse a landless population it created.",
+  synth:"The grain dole, the annona, was not charity. It was the running cost of a consolidation. Once the small farmer was gone, the same families who owned the land also needed the crowd fed and quiet, so the Republic bought peace by the ton of wheat and the day of games. Political power drained from citizens who no longer owned anything toward the men who owned everything, and the free grain was the receipt."},
+ {era:"11th \u2013 13th c.",name:"Song China",culprit:"The Song state",res:"Money",
+  one:"Private merchants invent paper money; the state takes over the press that prints it.",
+  d:"Sichuan merchants are allowed to issue private paper receipts, jiaozi, against deposits of iron coin.",
+  b:"Paper money circulates explosively and lubricates the world's first great commercial economy.",
+  r:"The Song state seizes issuance and monopolizes the printing of money itself.",
+  tell:"The tell is <em>debasement</em>. A monopoly on issuance prints its own crisis the moment it over-issues.",
+  synth:"This is the first clean case of the money prize. A convenience invented by traders became, within a century, a lever only the state was allowed to pull. And once issuance was monopolized, the temptation to over-print to cover war and deficit grew irresistible, so the very instrument that had powered the boom hollowed out the currency. Every fiat currency since has re-run this exact arc."},
+ {era:"1602 \u2013 1799",name:"The Dutch VOC",culprit:"The Dutch East India Company",res:"Trade",
+  one:"A state hands one company a monopoly over an ocean; it becomes a corporate sovereign.",
+  d:"The Dutch Republic charters a single company with a legal monopoly over all trade east of the Cape.",
+  b:"The spice trade explodes. The VOC becomes the first company to issue public stock, and the first true multinational.",
+  r:"It swallows rivals and territory, ruling ports and whole populations with its own army, navy, and courts.",
+  tell:"The tell is that <em>the corporation itself becomes the prize</em>: private power that governs.",
+  synth:"The VOC is the hinge where the prize stops being a thing and becomes an instrument. It could mint money, sign treaties, wage war, and execute prisoners. Sovereign functions were privatized into a joint-stock company two centuries before anyone used that phrase. When a single firm can do everything a state can do, controlling the route stops mattering, because the firm has become the thing that controls."},
+ {era:"15th \u2013 16th c.",name:"Fugger &amp; Medici",culprit:"The Fugger and Medici banking houses",res:"Information",
+  one:"Financiers buy the privileges of kings, then corner the news that moves the money.",
+  d:"Emperors and popes sell mining rights, banking privileges, and offices to whoever will finance them.",
+  b:"Banking houses proliferate, and a handwritten-newsletter trade springs up to carry prices and news across Europe.",
+  r:"A few houses corner the credit and the information. The Fuggers run roughly 16,000 newsletters (1568\u20131605) and help buy an emperor his election.",
+  tell:"The tell is that <em>whoever knows first, wins</em>. Information becomes the asset behind the money.",
+  synth:"By running private postal lines and heavily collecting avvisi, the Fuggers and Medicis knew about a sunk ship, a plague outbreak, a papal illness, or a declaration of war days before the open market did. They used that consolidated information loop to manipulate currency exchange rates, lock down international trade routes, and corner debt-ridden European kings into predatory financing loops. This is the first time the prize is not the money but the knowledge that prices the money, the direct ancestor of every modern data advantage."},
+ {era:"1557 \u2013 1710",name:"The Stationers' Company",culprit:"The London printing guild",res:"The press",
+  one:"A print monopoly is granted, lapses into a free-for-all, then re-forms as copyright.",
+  d:"The Crown grants one London guild a printing monopoly for censorship in 1557, then lets the licence lapse in 1695.",
+  b:"Presses, pamphlets, and newspapers multiply in the open decade after 1695.",
+  r:"The Statute of Anne (1710) invents copyright, a new legal form that quietly re-concentrates the printed word.",
+  tell:"The tell is that <em>the modern idea of owning a text is born as a reconsolidation device</em>.",
+  synth:"Copyright is remembered as a victory for authors, but it began as a way to put the printing genie back in a controllable bottle. When brute censorship failed, the answer was a property right that made the printed word ownable, and therefore concentrable, again. The same move repeats every time an open medium matures: the free years end not with new censorship but with new property."},
+ {era:"1870 \u2013 1911",name:"The Gilded Age",culprit:"American industrial capital",res:"Wire, rail &amp; oil",
+  one:"Unrestrained capital corners the continent's infrastructure; the regulator finally answers.",
+  d:"Post-Civil-War America lets industrial capital run with almost no restraint.",
+  b:"Railroads, oil, and the telegraph explode across a continent.",
+  r:"Standard Oil corners about 90% of refining. Western Union monopolizes the wire and, with the Associated Press, the news that travels on it.",
+  tell:"The tell is that <em>the counter-reaction lands</em>. The Sherman Act (1890), then Standard Oil broken up in 1911.",
+  synth:"The Gilded Age is the case that proves the loop can be interrupted. For thirty years the trusts concentrated with almost no check, and the story looked settled. Then a slow political reaction, muckrakers, a new statute, and a decade of litigation, pried the biggest of them apart. It is the strongest historical evidence that reconsolidation is not permanent, only durable, and that the regulator is a real, if late, resolution."},
+ {era:"1920 \u2013 1934",name:"American Radio",culprit:"NBC and CBS",res:"The airwaves",
+  one:"Open air, then chaos, then two networks own the signal that enters your home.",
+  d:"The early-1920s airwaves are effectively open. Anyone with a transmitter can broadcast.",
+  b:"Hundreds of stations flood the spectrum into a chaos of overlapping interference.",
+  r:"The Radio Act of 1927 licenses the spectrum, and NBC and CBS consolidate the field into a network duopoly.",
+  tell:"The tell is <em>enclosure</em>. A public resource, the air itself, is fenced and handed to a few.",
+  synth:"Radio shows how a genuine technical problem becomes the pretext for consolidation. The interference was real, so licensing was reasonable, but the licence became a permanent grant, and the two networks that could afford national reach turned a shared public spectrum into private territory. Every 'we need to regulate this chaos' moment carries the same risk: the cleanup crew keeps the building."},
+ {era:"1930s \u2013 1948 &middot; 2020 \u2013 now",name:"Hollywood",culprit:"The studio system",res:"The screen",
+  one:"The studio system, broken by antitrust in 1948, is re-forming now that the restraint was lifted.",
+  d:"The 1948 breakup is undone. The Paramount Decrees, which had barred studios from owning theaters, are repealed in 2020.",
+  b:"A streaming free-for-all. Everyone launches a service and spends billions buying subscribers.",
+  r:"Capital tightens, and Paramount moves to absorb Warner Bros. The studio system reassembles.",
+  tell:"The tell is <em>the loop restarting</em>. Studios owned production, distribution, and theaters until 1948 antitrust, the prior counter-reaction, broke them apart. The restraint is gone, so the shape returns.",
+  synth:"Hollywood is the only turn on this wheel where we can watch the same enclosure happen twice to the same industry. The 1948 decrees were the counter-reaction; the 2020 repeal quietly removed it; and within six years the vertical studio is rebuilding itself around streaming instead of theaters. It is a controlled experiment in what happens when you delete a resolution and wait.",
+  sub:{label:"The same resource, today",items:[
+    "Walmart buys Vizio to match what your television watches to what you buy at the register.",
+    "Experian, the credit bureau, buys its way into advertising identity.",
+    "Paramount moves on Warner Bros. Discovery because an audience too small to model is invisible to automated capital, so scale becomes mandatory."]}},
+ {era:"1950 \u2013 1967",name:"The Cultural Cold War",culprit:"The CIA's Congress for Cultural Freedom",res:"Narrative",adjacent:true,
+  one:"A state quietly finances a culture of 'freedom', from little magazines to Abstract Expressionism, to win an argument.",
+  d:"",b:"",r:"",
+  tell:"The prize here is <em>legitimacy itself</em>: the story of which side was free.",
+  body:"During the Cultural Cold War, the CIA covertly funded the Congress for Cultural Freedom, bankrolling magazines like <em>Encounter</em>, concert tours, and exhibitions, and quietly promoting American Abstract Expressionism, Jackson Pollock included, as proof that free societies produced free art.",
+  synth:"Is it consolidation? Not cleanly, and that is why it sits to the side of the wheel. There was no deregulation, boom, and reconsolidation cycle, and no private roll-up. It was a single sponsor secretly steering a field of ostensibly independent culture. It belongs here as the information and narrative prize taken to its logical end: not owning the news that moves money, but owning the frame through which a whole civilization judges itself. Read it as a cousin of the Fugger information turn, not as a turn of the wheel."},
+ {era:"2013 \u2013 now",name:"Today",culprit:"Platforms and consolidating media",res:"Behavior",
+  one:"The prize is no longer distribution. It is a first-party record of what you will do next.",
+  d:"Permissive antitrust withdraws restraint while cheap capital courts scale.",
+  b:"A streaming and platform gold rush. For a few years the audience is briefly the customer.",
+  r:"Capital turns expensive. Survivors consolidate to own the one prize automated capital can price: your behavior.",
+  tell:"The tell is that <em>the resource is now inside the person</em>. Land was the ground you stood on. Behavior is the prediction of what you will do.",
+  synth:"This is the whole wheel arriving at its destination. Every prior prize was outside the person and had to be converted into influence over them. Behavior skips the conversion. If you hold an accurate model of what someone will do, you no longer need to own their land, their money, their news, or their screen, because you can price and steer the outcome directly. That is why the media roll-up and the ad-identity roll-up are the same event: both are races to assemble one legible record of the modeled human."}
+];
+var exlist=document.getElementById('exlist');
+var turnNum=0;
+EX.forEach(function(e){
+  var idx = e.adjacent ? '&#9679;' : String(++turnNum).padStart(2,'0');
+  var el=document.createElement('div');
+  el.className='ex'+(e.adjacent?' adj':'');
+  var beats = e.adjacent
+    ? (e.body?'<p style="margin:0 0 14px;color:#3f4550;font-size:14.5px;line-height:1.55">'+e.body+'</p>':'')
+    : '<div class="beats">'+
+        '<div class="beat d"><div class="bl">Deregulation</div><p>'+e.d+'</p></div>'+
+        '<div class="beat b"><div class="bl">Boom</div><p>'+e.b+'</p></div>'+
+        '<div class="beat r"><div class="bl">Reconsolidation</div><p>'+e.r+'</p></div>'+
+      '</div>';
+  var subhtml = e.sub ? '<div class="subex"><div class="sxl">'+e.sub.label+'</div><ul>'+e.sub.items.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>' : '';
+  el.innerHTML=
+    '<div class="ex-head">'+
+      '<div class="ex-idx">'+idx+'</div>'+
+      '<div><div class="ex-era">'+e.era+'</div><div class="ex-name">'+e.name+'<span class="culprit">'+e.culprit+'</span></div><div class="ex-one">'+e.one+'</div></div>'+
+      '<div class="ex-right"><span class="res-tag">'+e.res+'</span><span class="plus">+</span></div>'+
+    '</div>'+
+    '<div class="ex-body"><div class="ex-inner">'+
+      beats+
+      '<div class="tell">'+e.tell+'</div>'+
+      subhtml+
+      '<button class="expand-btn" type="button">Expand &darr;</button>'+
+      '<div class="synth"><div class="synth-inner"><div class="sl">'+(e.adjacent?'Is it a turn of the wheel?':'The deeper cut')+'</div><p>'+e.synth+'</p></div></div>'+
+    '</div></div>';
+  var body=el.querySelector('.ex-body');
+  var synth=el.querySelector('.synth');
+  var expandBtn=el.querySelector('.expand-btn');
+  el.querySelector('.ex-head').addEventListener('click',function(){
+    var open=el.classList.toggle('open');
+    if(open){body.style.maxHeight=body.scrollHeight+'px';}
+    else{body.style.maxHeight=null;el.classList.remove('exp');synth.style.maxHeight=null;expandBtn.innerHTML='Expand &darr;';}
+  });
+  expandBtn.addEventListener('click',function(ev){
+    ev.stopPropagation();
+    var exp=el.classList.toggle('exp');
+    if(exp){synth.style.maxHeight=synth.scrollHeight+'px';expandBtn.innerHTML='Collapse &uarr;';}
+    else{synth.style.maxHeight=null;expandBtn.innerHTML='Expand &darr;';}
+    body.style.maxHeight=(body.scrollHeight+ (exp?synth.scrollHeight:0))+'px';
+    setTimeout(function(){ if(el.classList.contains('open')) body.style.maxHeight=body.scrollHeight+'px'; },10);
+  });
+  exlist.appendChild(el);
+});
+
+/* ---------- america: metrics ---------- */
+var METRICS=[
+ {label:"Household debt to income",unit:"%",max:120,up:true,
+   then:{val:32,foot:"Debt was an on-ramp to equity."},
+   now:{val:100,foot:"$18.8T total; about $1.3T on cards near 21%."},
+   both:"32% to 100%. Borrowing flipped from building equity to funding consumption."},
+ {label:"Top 10% share of income",unit:"%",max:60,up:true,
+   then:{val:33,foot:"A broad middle held most of the gains."},
+   now:{val:48,foot:"Near a century-high concentration."},
+   both:"33% to 48%. The gains re-pooled at the top."},
+ {label:"Healthcare as share of the economy",unit:"%",max:20,up:true,
+   then:{val:4,foot:"A cost that barely registered."},
+   now:{val:17,foot:"A leading cause of household bankruptcy."},
+   both:"4% to 17%. A private tax that grew roughly fourfold."},
+ {label:"Spending that buys access, not ownership",unit:"%",max:100,up:true,
+   then:{val:40,foot:"Most dollars still bought things you kept."},
+   now:{val:66,foot:"Two-thirds now rents. It builds no asset."},
+   both:"40% to 66%. Ownership gave way to access."}
+];
+var SUMMARY={
+ then:'<b>An owner\'s country.</b> Equity, rootedness, and deferral. Households borrowed to acquire and kept what they bought. Delayed gratification paid out, so the culture and the balance sheet agreed.',
+ now:'<b>A renter\'s country.</b> Access, mobility, and the present tense. Households borrow to consume and keep almost none of it. Delayed gratification stopped paying out, so spending reallocated to now.',
+ both:'<b>One country, seventy years apart.</b> Every line moves the same direction: from what you own toward what you rent, from the future you saved for toward the present you finance.'
+};
+var metricsEl=document.getElementById('metrics');
+var summaryEl=document.getElementById('stateSummary');
+var mode='then';
+function easeVal(node,from,to,dur){
+  var start=performance.now();var dec=(to%1!==0)||(from%1!==0);
+  function step(t){var p=Math.min(1,(t-start)/dur);p=1-Math.pow(1-p,3);
+    var v=from+(to-from)*p;node.textContent=dec?v.toFixed(1):Math.round(v);
+    if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+function buildMetrics(){
+  metricsEl.innerHTML=METRICS.map(function(m){
+    return '<div class="metric'+(m.up?' up':'')+'">'+
+      '<div class="m-top"><span class="m-label">'+m.label+'</span><span class="m-val single"><span class="v">0</span><span class="u">'+m.unit+'</span></span></div>'+
+      '<div class="single-bar"><div class="bar"><span></span></div></div>'+
+      '<div class="dual" style="display:none"></div>'+
+      '<div class="m-foot"></div></div>';
+  }).join('');
+}
+function renderMetrics(){
+  summaryEl.innerHTML=SUMMARY[mode];
+  var cards=metricsEl.querySelectorAll('.metric');
+  METRICS.forEach(function(m,i){
+    var card=cards[i];
+    var single=card.querySelector('.m-val.single');
+    var singleBar=card.querySelector('.single-bar');
+    var dual=card.querySelector('.dual');
+    var foot=card.querySelector('.m-foot');
+    if(mode==='both'){
+      single.style.display='none';singleBar.style.display='none';dual.style.display='block';
+      dual.innerHTML=
+        '<div class="mrow"><span class="yl">1950</span><div class="bar"><span style="width:'+(m.then.val/m.max*100)+'%;background:linear-gradient(90deg,#9cc7ff,'+ '#0071e3'+')"></span></div><span class="mv">'+m.then.val+m.unit+'</span></div>'+
+        '<div class="mrow"><span class="yl">2026</span><div class="bar"><span style="width:'+(m.now.val/m.max*100)+'%;background:linear-gradient(90deg,#f0b98a,'+'#b65f00'+')"></span></div><span class="mv">'+m.now.val+m.unit+'</span></div>';
+      foot.textContent=m.both;
+    }else{
+      single.style.display='';singleBar.style.display='';dual.style.display='none';
+      var d=m[mode];
+      var vNode=card.querySelector('.v');
+      var prev=parseFloat(vNode.textContent)||0;
+      easeVal(vNode,prev,d.val,850);
+      card.querySelector('.single-bar .bar span').style.width=(d.val/m.max*100)+'%';
+      foot.textContent=d.foot;
+    }
+  });
+}
+buildMetrics();
+var seg=document.getElementById('seg');
+seg.addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  seg.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+  b.classList.add('on');mode=b.dataset.y;renderMetrics();
+});
+
+/* ---------- america: dims ---------- */
+var DIMS=[
+ {k:"Home ownership",t:["Climbing past 55%","One income bought a house. Debt-to-income near 30%, and every dollar borrowed built equity."],
+   n:["Held at 65.5%","Propped by cohorts who bought decades ago. For the young the door closed; price-to-income roughly doubled."]},
+ {k:"Land",t:["Dispersed","GI-Bill suburbs and family farms spread ownership widely across the middle."],
+   n:["Aggregated","Institutional investors and a few large builders roll up single-family homes; farmland concentrates into ever fewer hands."]},
+ {k:"Wealth",t:["Broadly held","A wide middle class held real assets. Concentration was low by modern standards."],
+   n:["Re-pooled at the top","The top 10% hold roughly two-thirds of household wealth; the bottom half holds almost none."]},
+ {k:"Debt",t:["Acquisition debt","You borrowed to become an owner. The on-ramp to equity."],
+   n:["Extraction debt","$18.8T total, about $1.3T revolving near 21%. Debt now pulls equity out, or funds pure consumption."]},
+ {k:"Credit &amp; access",t:["Layaway and cash","You waited, paid it off, then owned the thing."],
+   n:["Buy now, pay later","Access replaces ownership, down to financing lunch. You keep the debt, not the asset."]},
+ {k:"Healthcare",t:["Barely a line item","Cheap, employer-emergent, a small share of income."],
+   n:["A private tax","About 17% of the economy and a leading cause of household bankruptcy."]},
+ {k:"Retirement",t:["A pension, employer-managed","As late as 1980, 92% of private retirement contributions went to employer plans. The household bore no risk."],
+   n:["A 401(k) you manage","Median balance near $34K. The 'retirement number' is itself the artifact of that risk transfer."]},
+ {k:"Family",t:["3.0+ and rising","Fertility near a postwar peak; household formation early and common."],
+   n:["1.6, a record low","On par with Western Europe. Housing and childcare price parenthood out of reach."]},
+ {k:"Faith",t:["Church at the center","Membership 76% in 1947; about half attended weekly. The congregation was the social infrastructure."],
+   n:["Below half","Membership 47%; roughly 30% attend. A quarter of Americans now claim no religion at all."]},
+ {k:"Food",t:["Grown and cooked at home","Wartime victory gardens grew a large share of fresh vegetables. The kitchen was a place of production."],
+   n:["Ordered in","55% of food dollars are now spent away from home. Americans spend more eating out than on groceries."]},
+ {k:"Leisure",t:["Owned and local","You owned the records and the books. Leisure was civic: the club, the church social, the ballgame."],
+   n:["Rented and streamed","Eight subscriptions at about $220 a month and $7,500 a year on dining and events. You own none of what you use."]},
+ {k:"Time horizon",t:["The future compounded","You saved for a future you expected to be better. Deferral was rational."],
+   n:["The present, financed","A $1,000 weekend clears; the asset it substitutes for never will. You buy now because now is all that pays out."]}
+];
+var dimsEl=document.getElementById('dims');
+dimsEl.innerHTML=DIMS.map(function(d){
+  return '<div class="dim-row">'+
+    '<div class="dim-key">'+d.k+'</div>'+
+    '<div class="dim-then"><span class="dim-tag">1950</span><span class="dim-val">'+d.t[0]+'</span><span class="dim-txt">'+d.t[1]+'</span></div>'+
+    '<div class="dim-now"><span class="dim-tag">2026</span><span class="dim-val">'+d.n[0]+'</span><span class="dim-txt">'+d.n[1]+'</span></div>'+
+  '</div>';
+}).join('');
+
+/* ---------- reveal + first metric build ---------- */
+var metricsBuilt=false;
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      if(en.target===metricsEl && !metricsBuilt){metricsBuilt=true;renderMetrics();}
+      io.unobserve(en.target);
+    }
+  });
+},{threshold:.14});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+if(!metricsEl.classList.contains('rv')){renderMetrics();metricsBuilt=true;}
+setTimeout(function(){ if(!metricsBuilt){renderMetrics();metricsBuilt=true;} },1200);
+
+/* ---------- nav scroll-spy ---------- */
+var navA=[].slice.call(document.querySelectorAll('#navlinks a'));
+var targets=navA.map(function(a){return document.getElementById(a.dataset.target);});
+var sObs=new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(en.isIntersecting){
+      navA.forEach(function(a){a.classList.toggle('active',a.dataset.target===en.target.id);});
+    }
+  });
+},{threshold:.4,rootMargin:'-20% 0px -50% 0px'});
+targets.forEach(function(t){if(t)sObs.observe(t);});
+</script>
+</body>
+</html>
