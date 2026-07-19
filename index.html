@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>When Compute Ate Culture</title>
+<title>Unnatural Resources: When Compute Ate Culture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -25,12 +25,14 @@ em{font-style:italic}
 /* nav */
 .nav{position:sticky;top:0;z-index:50;background:rgba(245,245,247,.74);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .nav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:13px 26px}
-.brand{font-weight:800;letter-spacing:-.03em;font-size:15px}
+.titlebar{background:transparent}
+.title-inner{max-width:1180px;margin:0 auto;padding:22px 26px 14px}
+.brand{font-weight:800;letter-spacing:-.03em;font-size:19px}
 .brand span{font-family:var(--serif);font-weight:900}
-.navlinks{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
 .navlinks a{border:1px solid var(--line);background:rgba(255,255,255,.65);padding:8px 12px;border-radius:999px;font-size:13px;color:#252934;box-shadow:0 1px 0 rgba(255,255,255,.8) inset;cursor:pointer}
 .navlinks a.active{background:#111;color:#fff;border-color:#111}
-.navcontact{display:flex;gap:6px;align-items:center}
+.navcontact{display:flex;gap:6px;align-items:center;margin-left:auto}
 .cbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:rgba(255,255,255,.65);padding:8px 12px;border-radius:999px;font-size:13px;color:#252934;box-shadow:0 1px 0 rgba(255,255,255,.8) inset;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
 .cbtn:hover{background:#111;color:#fff;border-color:#111}
 .cbtn svg{width:14px;height:14px;flex:none}
@@ -191,6 +193,7 @@ em{font-style:italic}
 .mythcard{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);padding:22px 24px;margin-top:16px}
 .mythcard .badge{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#f0edff;color:#4d32a3;border:1px solid #d9d0f2;border-radius:999px;padding:5px 10px;display:inline-block;margin-bottom:12px}
 .mythcard q{display:block;font-family:var(--serif);font-size:clamp(19px,2.1vw,26px);font-weight:700;font-style:italic;letter-spacing:-.02em;color:#1a1d24;line-height:1.2;margin-bottom:12px}
+.mythcard .mq{display:block;font-family:var(--serif);font-size:clamp(19px,2.1vw,26px);font-weight:700;font-style:italic;letter-spacing:-.02em;color:#1a1d24;line-height:1.2;margin:0 0 12px}
 .mythcard p{margin:0;color:#33414a;font-size:15px;line-height:1.55}
 .mythcard p b{color:var(--purple)}
 
@@ -205,6 +208,45 @@ em{font-style:italic}
 .r-item p{margin:0;font-size:14px;color:#3f4550;line-height:1.55}
 .resolve-synth{margin-top:18px;font-family:var(--serif);font-size:clamp(18px,2vw,24px);font-style:italic;letter-spacing:-.02em;color:#1a1d24;max-width:52ch;line-height:1.3}
 
+/* bailout ledger */
+.ledger{margin:20px 0 22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:rgba(255,255,255,.6);box-shadow:var(--shadow2)}
+.lg-cap{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:14px 20px 6px}
+.lg-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:13px 20px;border-top:1px solid var(--line)}
+.lg-yr{flex:0 0 74px;font-family:var(--mono);font-size:12.5px;font-weight:700;color:#252934;letter-spacing:.02em}
+.lg-ev{flex:1 1 300px;font-size:14px;color:#3a424c;line-height:1.42}
+.lg-ev b{font-weight:700;color:#1a1d24}
+.lg-tag{flex:0 0 auto;margin-left:auto;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.lg-tag.liq{background:rgba(189,43,40,.09);color:#bd2b28;border:1px solid rgba(189,43,40,.22)}
+.lg-tag.priv{background:rgba(107,71,214,.09);color:#6b47d6;border:1px solid rgba(107,71,214,.22)}
+.lg-tag.bail{background:rgba(0,113,227,.09);color:#0071e3;border:1px solid rgba(0,113,227,.22)}
+.lg-tag.exc{background:rgba(182,95,0,.1);color:#b65f00;border:1px solid rgba(182,95,0,.24)}
+.lg-hinge{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:14px 20px;border-top:1px solid var(--line);background:linear-gradient(90deg,rgba(0,113,227,.07),rgba(107,71,214,.07))}
+.lg-hinge .hy{font-family:var(--mono);font-size:14px;font-weight:800;color:#111;letter-spacing:.02em}
+.lg-hinge .ht{flex:1 1 320px;font-size:13.5px;color:#3a424c;line-height:1.4}
+.lg-legend{display:flex;flex-wrap:wrap;gap:8px 18px;padding:13px 20px;border-top:1px solid var(--line);background:rgba(255,255,255,.35)}
+.lg-legend span{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:#5a606c}
+.lg-legend .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.dot.liq{background:#bd2b28}.dot.priv{background:#6b47d6}.dot.bail{background:#0071e3}.dot.exc{background:#b65f00}
+/* culture-buying timeline */
+.ctl-cap{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 14px}
+.ctl-item{display:flex;gap:14px;align-items:stretch}
+.ctl-yr{flex:0 0 52px;text-align:right;font-family:var(--mono);font-size:11.5px;font-weight:700;color:#252934;padding-top:2px;letter-spacing:.02em}
+.ctl-rail{flex:0 0 12px;position:relative;display:flex;justify-content:center}
+.ctl-rail::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--line)}
+.ctl-dot{width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative;z-index:1}
+.ctl-item.identity .ctl-dot{border-color:var(--purple)}
+.ctl-item.arena .ctl-dot{border-color:var(--orange)}
+.ctl-item.all .ctl-dot{background:conic-gradient(var(--blue) 0 33.3%,var(--purple) 0 66.6%,var(--orange) 0 100%);border:none;width:13px;height:13px}
+.ctl-legend .dot.all{background:conic-gradient(var(--blue) 0 33.3%,var(--purple) 0 66.6%,var(--orange) 0 100%);border:none}
+.ctl-item:last-child .ctl-rail::before{bottom:auto;height:15px}
+.ctl-c{flex:1 1 auto;padding-bottom:20px}
+.ctl-deal{font-family:var(--serif);font-size:17px;font-weight:800;letter-spacing:-.02em;color:#1a1d24;line-height:1.16}
+.ctl-deal .amt{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--muted);margin-left:8px;letter-spacing:0;white-space:nowrap}
+.ctl-why{font-size:13.5px;color:#4c5260;line-height:1.45;margin-top:4px;max-width:66ch}
+.ctl-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:4px 0 0 66px}
+.ctl-legend span{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:#5a606c}
+.ctl-legend .dot{width:10px;height:10px;border-radius:50%;border:2px solid;background:#fff;flex:none}
+.ctl-legend .dot.d{border-color:var(--blue)}.ctl-legend .dot.i{border-color:var(--purple)}.ctl-legend .dot.a{border-color:var(--orange)}
 /* shapes */
 .shapes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
 .shape{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);padding:16px 20px}
@@ -291,9 +333,13 @@ em{font-style:italic}
 </head>
 <body>
 
+<div class="titlebar">
+  <div class="title-inner">
+    <div class="brand">Unnatural Resources: <span>When Compute Ate Culture</span></div>
+  </div>
+</div>
 <nav class="nav">
   <div class="nav-inner">
-    <div class="brand">When Compute <span>Ate Culture</span></div>
     <div class="navlinks" id="navlinks">
       <a href="#thesis" data-target="thesis">Thesis</a>
       <a href="#engine" data-target="engine">Engine</a>
@@ -314,7 +360,7 @@ em{font-style:italic}
 <header class="hero" id="top">
   <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
   <div class="wrap">
-    <div class="eyebrow">A field guide to consolidation &nbsp;/&nbsp; verified July 2026</div>
+    <div class="eyebrow">A field guide to consolidation &nbsp;/&nbsp; July 2026</div>
     <h1 class="h1">The resource being captured has moved from <em>outside the person to inside the person.</em></h1>
     <p class="lede">Every era's great consolidation races to corner the one input that, once owned, converts into power over everyone else. What changes is which resource that is, and the arc has a direction. It moves inward, from the ground you stand on to the prediction of what you will do next. This is the American balance sheet, reorganizing its supply of meaning.</p>
     <div class="stats">
@@ -464,7 +510,7 @@ em{font-style:italic}
 
     <div class="mythcard rv d1">
       <span class="badge">The paradox that makes it work</span>
-      <q>Gen Z is the most surveillance-skeptical generation on record, and the most willing to sell its data for services and experiences.</q>
+      <p class="mq">Gen Z is the most surveillance-skeptical generation on record, and the most willing to sell its data for services and experiences.</p>
       <p>They distrust the watcher and hand over the tape anyway, because the present is the only thing still priced to buy. <b>Skepticism without leverage is just consent with extra steps.</b> The same cohort that defects to the illegible movie funds the modeled human the rest of the time.</p>
     </div>
 
@@ -488,6 +534,23 @@ em{font-style:italic}
 
     <h3 class="rv" style="font-family:var(--serif);font-size:22px;font-weight:800;letter-spacing:-.03em;margin:48px 0 8px">Why the crash keeps not arriving.</h3>
     <p class="rv" style="color:#4c5260;margin:0 0 14px;max-width:74ch">Look closer at that first exit, because it has changed shape. The panics of 1873, 1893, and 1907, and the crash of 1929, all resolved the same brutal way, through liquidation and deflation. Gold was the binding constraint, so the losses fell on debtors and workers, and rescue was either private or absent. J.P. Morgan personally backstopped the U.S. Treasury in 1895 and organized the rescue of 1907 because no one else could. The populist demand of that era was for inflation, since inflation relieves the indebted. In 1971 the dollar's last tie to gold was cut, and that constraint disappeared. After that, nearly every collapse that might have liquidated the system was converted into inflation and bailout instead: the liquidity flood after 1987, the 1998 rescue of Long-Term Capital, the $700 billion TARP and the trillions the Fed lent beside it in 2008, a balance sheet that swelled toward $9 trillion by 2022, the backstop of Silicon Valley Bank in 2023. Collapse got traded for debasement.</p>
+
+    <div class="ledger rv d1">
+      <div class="lg-cap">A century of crises, and how each one actually resolved</div>
+      <div class="lg-row"><span class="lg-yr">1873</span><span class="lg-ev"><b>Panic of 1873.</b> The Long Depression sets in. Prices fall for years and the losses sit where they land.</span><span class="lg-tag liq">Liquidation</span></div>
+      <div class="lg-row"><span class="lg-yr">1893</span><span class="lg-ev"><b>Panic of 1893.</b> A gold-reserve crisis and a deep depression, with no public backstop to soften it.</span><span class="lg-tag liq">Liquidation</span></div>
+      <div class="lg-row"><span class="lg-yr">1895</span><span class="lg-ev"><b>Treasury gold crisis.</b> A Morgan-led syndicate lends the government gold to defend the dollar.</span><span class="lg-tag priv">Private rescue</span></div>
+      <div class="lg-row"><span class="lg-yr">1907</span><span class="lg-ev"><b>Panic of 1907.</b> With no central bank, Morgan personally organizes the rescue of the banking system.</span><span class="lg-tag priv">Private rescue</span></div>
+      <div class="lg-row"><span class="lg-yr">1929</span><span class="lg-ev"><b>The Great Crash.</b> Deflation and waves of bank failures. The owner-less balance sheet detonates at once.</span><span class="lg-tag liq">Liquidation</span></div>
+      <div class="lg-hinge"><span class="hy">1971</span><span class="ht">Nixon closes the gold window. The binding constraint disappears, and rescue turns from a hard limit into a policy choice.</span></div>
+      <div class="lg-row"><span class="lg-yr">1979&ndash;82</span><span class="lg-ev"><b>The Volcker shock.</b> The Fed chooses the hard path on purpose, rates near 20 percent, to break almost 15 percent inflation.</span><span class="lg-tag exc">Exception</span></div>
+      <div class="lg-row"><span class="lg-yr">1987</span><span class="lg-ev"><b>Black Monday.</b> The Fed floods the system with liquidity within a single day.</span><span class="lg-tag bail">Reflation</span></div>
+      <div class="lg-row"><span class="lg-yr">1998</span><span class="lg-ev"><b>Long-Term Capital.</b> The Fed brokers a private recapitalization of one hedge fund to halt the contagion.</span><span class="lg-tag bail">Bailout</span></div>
+      <div class="lg-row"><span class="lg-yr">2008</span><span class="lg-ev"><b>The financial crisis.</b> A $700 billion TARP, and the Fed lends trillions more through emergency facilities.</span><span class="lg-tag bail">Bailout</span></div>
+      <div class="lg-row"><span class="lg-yr">2020</span><span class="lg-ev"><b>The pandemic shock.</b> The Fed expands its balance sheet roughly $4.6 trillion, toward $9 trillion by 2022.</span><span class="lg-tag bail">Reflation</span></div>
+      <div class="lg-row"><span class="lg-yr">2023</span><span class="lg-ev"><b>Silicon Valley Bank.</b> A new Fed facility and a federal backstop of uninsured deposits stop the run.</span><span class="lg-tag bail">Bailout</span></div>
+      <div class="lg-legend"><span><i class="dot liq"></i>Loss falls where it lands</span><span><i class="dot priv"></i>Private backstop</span><span><i class="dot bail"></i>Public reflation</span><span><i class="dot exc"></i>Deliberate pain</span></div>
+    </div>
     <p class="rv" style="color:#4c5260;margin:0 0 14px;max-width:74ch">The ratchet is strong, but it is not absolute, and integrity requires the counterexample. From 1979 to 1982 Paul Volcker's Federal Reserve chose the hard path on purpose, pushing rates toward 20 percent and driving unemployment above 10 percent to break an inflation that had reached almost 15 percent. It worked, and it was pain accepted rather than deferred. That episode is the exception that shows how rarely the choice is made. The rest of the time the state reaches for reflation, and here is the part that matters for this argument: every reflation rescues whoever already owns the assets and does little for whoever holds only wages or cash. This is the distributional critique of the modern bailout, contested but well argued, and if it holds then the tool that prevents the crash is the same one that moved the country from owner to renter.</p>
     <p class="rv" style="margin:0 0 4px;max-width:74ch;color:#1a1d24"><b>The crash is still listed as an exit, but since 1971 the state has learned to convert it into a slow bleed instead.</b></p>
 
@@ -545,6 +608,31 @@ em{font-style:italic}
       <div class="kicker">07 &nbsp;/&nbsp; The finale</div>
       <h2 style="margin-bottom:18px">When compute ate culture.</h2>
       <p class="sub" style="margin-bottom:14px">A fortune built selling databases now owns the studio that made <em>Casablanca</em>. The framing that this is a media story misses the point. It is a compute story, and the way it was paid for gives it away.</p>
+      <p class="sub" style="margin-bottom:6px">It did not begin with Paramount. For a decade the same money has moved in the same direction: fortunes built in software, cloud, search, and e-commerce, buying the institutions that make and hold culture.</p>
+
+      <div class="ctl-cap">Compute money buying culture, 2013 to now</div>
+      <div class="ctl rv d1">
+        <div class="ctl-item identity"><div class="ctl-yr">2013</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Jeff Bezos buys The Washington Post<span class="amt">$250M</span></div><div class="ctl-why">The Amazon and AWS founder buys a bleeding civic institution and rebuilds its data and engineering stack into a high-traffic subscriber engine. The proof of concept for everything that follows.</div></div></div>
+        <div class="ctl-item arena"><div class="ctl-yr">2014</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Ballmer buys the LA Clippers<span class="amt">$2B</span></div><div class="ctl-why">Microsoft's enterprise-software fortune lands in the NBA. Tech utility money moving into live physical monoculture.</div></div></div>
+        <div class="ctl-item identity"><div class="ctl-yr">2017</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Laurene Powell Jobs takes The Atlantic<span class="amt">majority stake</span></div><div class="ctl-why">Apple-scale wealth, through Emerson Collective, takes control of a magazine founded in 1857 and keeps a legacy narrative engine running.</div></div></div>
+        <div class="ctl-item identity"><div class="ctl-yr">2018</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Patrick Soon-Shiong buys the LA Times<span class="amt">~$500M</span></div><div class="ctl-why">A biotech and health-tech fortune rescues the West Coast's largest newsroom and anchors it to a science-IP portfolio.</div></div></div>
+        <div class="ctl-item identity"><div class="ctl-yr">2018</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Marc Benioff buys Time<span class="amt">$190M</span></div><div class="ctl-why">The Salesforce founder personally buys the nearly century-old newsweekly, a cloud SaaS titan taking custody of a legacy print brand.</div></div></div>
+        <div class="ctl-item arena"><div class="ctl-yr">2019</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Joe Tsai buys the Brooklyn Nets<span class="amt">$2.35B</span></div><div class="ctl-why">Alibaba's co-founder pays a U.S. sports record, marrying Chinese e-commerce and cloud wealth to NBA distribution.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2020</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Spotify buys The Ringer<span class="amt">~$200M</span></div><div class="ctl-why">A streaming algorithm buys Bill Simmons's media empire. Software deciding not just how you listen, but which opinions lead.</div></div></div>
+        <div class="ctl-item arena"><div class="ctl-yr">2020</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Ryan Smith buys the Utah Jazz<span class="amt">$1.66B</span></div><div class="ctl-why">Qualtrics experience-software money buys the Jazz, then stands up the Utah Hockey Club in 2024, reshaping a region's sports culture.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2021</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Naver acquires Wattpad<span class="amt">~$600M</span></div><div class="ctl-why">South Korea's search and e-commerce giant buys the largest web-fiction community, a database engine acquiring a narrative factory of Gen Z writers.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2022</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Amazon acquires MGM<span class="amt">$8.45B</span></div><div class="ctl-why">AWS and e-commerce absorb nearly a century of Hollywood, the library pulled in mainly to drive Prime retention and feed the ad engine.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2022</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Elon Musk buys Twitter<span class="amt">$44B</span></div><div class="ctl-why">The real-time public square becomes the core training set for xAI and its model Grok. A communication hub, revealed as an AI training ground.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2023</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Microsoft buys Activision Blizzard<span class="amt">$68.7B</span></div><div class="ctl-why">The largest deal in gaming history absorbs Call of Duty and World of Warcraft, the social worlds where a generation forms its identity.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">now</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Tencent's global gaming roll-up<span class="amt">stakes + buys</span></div><div class="ctl-why">Stakes in Epic and FromSoftware and outright buys elsewhere let one internet and cloud giant steer interactive culture from the backend.</div></div></div>
+        <div class="ctl-item all"><div class="ctl-yr">2024&ndash;26</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Josh Kushner's Thrive Capital<span class="amt">Life &middot; A24 &middot; Giants</span></div><div class="ctl-why">The fund behind OpenAI and Stripe buys across all three classes at once: the Life brand through Bedford Media, a board seat at A24 after leading its $3.5 billion round, and a 2026 stake in the San Francisco Giants through Thrive Eternal, a vehicle built for cultural assets that technology cannot replicate.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2024</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Skydance merges with Paramount<span class="amt">~$8B</span></div><div class="ctl-why">David Ellison takes Paramount, and roughly $6 billion of the price is his father Larry, the Oracle founder, underwriting the buy. A database dynasty acquiring a century of film.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2026</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Paramount Skydance bids for Warner Bros.<span class="amt">~$110B</span></div><div class="ctl-why">The same move an order of magnitude larger. Larry Ellison backstops about $40 billion to fold Warner into the empire. As of July 2026 it faces a twelve-state lawsuit and has not closed.</div></div></div>
+      </div>
+      <div class="ctl-legend rv d2"><span><i class="dot d"></i>The asset is training data</span><span><i class="dot i"></i>The asset is influence</span><span><i class="dot a"></i>The asset is the live crowd</span><span><i class="dot all"></i>All three at once</span></div>
+
+      <p class="sub" style="margin:18px 0 14px">Read as a list it looks like billionaires collecting trophies. Read as a balance sheet it is closer to one motion, compute money flowing into the institutions that make culture. Some of it is training data outright, the audio library, the fan-fiction archive, the game world, the live public feed that trains a model. Some is influence, and some is simply the most engaged crowd money can buy. The direction is the point. Paramount is where it stopped being a sideline and became the main event.</p>
+
       <p class="sub" style="margin-bottom:14px">Look at the money. The original 2024 Skydance and Paramount deal was valued at about $8 billion, and roughly $6 billion of it was Larry Ellison, the Oracle founder, personally underwriting his son David's acquisition. It was less a media merger than a father buying his son a studio.</p>
       <p class="sub" style="margin-bottom:14px">The Warner Bros. bid only sharpens the pattern. Paramount Skydance's roughly $110 billion move on Warner Bros. Discovery (about $81 billion in equity, near $110 billion including debt) became credible only once Larry Ellison agreed to personally backstop about $40 billion of the financing, after Warner's board worried Paramount was too thin to close. The same underwriting, one order of magnitude larger. As of July 2026 the deal has shareholder approval and Justice Department clearance, but faces a twelve-state lawsuit and EU and UK review, and has not closed.</p>
 
@@ -555,6 +643,7 @@ em{font-style:italic}
       </div>
 
       <p class="sub" style="margin:22px 0 0">Why would database money want the studio that made <em>Casablanca</em>? Because the title library is no longer the asset. The asset is the audience the library assembles, rendered as a first-party, machine-legible record of behavior. Storage, identity, and compute are what price and steer that record. To this kind of capital, a studio is a very large, very loyal dataset with a back catalog attached.</p>
+      <p class="sub" style="margin:18px 0 0">And then, in 2025, the same fortune reached past the catalog for the engine itself. When Washington forced TikTok into American ownership, Larry Ellison's Oracle took a fifteen percent stake in the new US company, agreed to host its data, and began retraining its recommendation algorithm on its own cloud. A studio is a behavioral dataset with a back catalog attached. TikTok is the dataset with nothing attached at all, no library and no stars, only the record of what a hundred and seventy million people watch and the machine that predicts what they will want next. The man buying the history of film now curates the feed that decides what comes after it.</p>
     </div>
 
     <div class="finalquote rv d1">
@@ -617,35 +706,35 @@ var EX=[
   r:"The Song state seizes issuance and monopolizes the printing of money itself.",
   tell:"The tell is <em>debasement</em>. A monopoly on issuance prints its own crisis the moment it over-issues.",
   synth:"This is the first clean case of the money prize. A convenience invented by traders became, within a century, a lever only the state was allowed to pull. And once issuance was monopolized, the temptation to over-print to cover war and deficit grew irresistible, so the very instrument that had powered the boom hollowed out the currency. Every fiat currency since has re-run this exact arc."},
- {era:"1602 \u2013 1799",name:"The Dutch VOC",culprit:"The Dutch East India Company",res:"Trade",
+ {era:"1602 \u2013 1799",name:"The Netherlands",culprit:"The Dutch East India Company",res:"Trade",
   one:"A state hands one company a monopoly over an ocean; it becomes a corporate sovereign.",
   d:"The Dutch Republic charters a single company with a legal monopoly over all trade east of the Cape.",
   b:"The spice trade explodes. The VOC becomes the first company to issue public stock, and the first true multinational.",
   r:"It swallows rivals and territory, ruling ports and whole populations with its own army, navy, and courts.",
   tell:"The tell is that <em>the corporation itself becomes the prize</em>: private power that governs.",
   synth:"The VOC is the hinge where the prize stops being a thing and becomes an instrument. It could mint money, sign treaties, wage war, and execute prisoners. Sovereign functions were privatized into a joint-stock company two centuries before anyone used that phrase. When a single firm can do everything a state can do, controlling the route stops mattering, because the firm has become the thing that controls."},
- {era:"15th \u2013 16th c.",name:"Fugger &amp; Medici",culprit:"The Fugger and Medici banking houses",res:"Information",
+ {era:"15th \u2013 16th c.",name:"Augsburg &amp; Florence",culprit:"Fugger &amp; Medici",res:"Information",
   one:"Financiers buy the privileges of kings, then corner the news that moves the money.",
   d:"Emperors and popes sell mining rights, banking privileges, and offices to whoever will finance them.",
   b:"Banking houses proliferate, and a handwritten-newsletter trade springs up to carry prices and news across Europe.",
   r:"A few houses corner the credit and the information. The Fuggers run roughly 16,000 newsletters (1568\u20131605) and help buy an emperor his election.",
   tell:"The tell is that <em>whoever knows first, wins</em>. Information becomes the asset behind the money.",
   synth:"By running private postal lines and heavily collecting avvisi, the Fuggers and Medicis knew about a sunk ship, a plague outbreak, a papal illness, or a declaration of war days before the open market did. They used that consolidated information loop to manipulate currency exchange rates, lock down international trade routes, and corner debt-ridden European kings into predatory financing loops. This is the first time the prize is not the money but the knowledge that prices the money, the direct ancestor of every modern data advantage."},
- {era:"1557 \u2013 1710",name:"The Stationers' Company",culprit:"The London printing guild",res:"The press",
+ {era:"1557 \u2013 1710",name:"London",culprit:"The Stationers' Company",res:"The press",
   one:"A print monopoly is granted, lapses into a free-for-all, then re-forms as copyright.",
   d:"The Crown grants one London guild a printing monopoly for censorship in 1557, then lets the licence lapse in 1695.",
   b:"Presses, pamphlets, and newspapers multiply in the open decade after 1695.",
   r:"The Statute of Anne (1710) invents copyright, a new legal form that quietly re-concentrates the printed word.",
   tell:"The tell is that <em>the modern idea of owning a text is born as a reconsolidation device</em>.",
   synth:"Copyright is remembered as a victory for authors, but it began as a way to put the printing genie back in a controllable bottle. When brute censorship failed, the answer was a property right that made the printed word ownable, and therefore concentrable, again. The same move repeats every time an open medium matures: the free years end not with new censorship but with new property."},
- {era:"1870 \u2013 1911",name:"The Gilded Age",culprit:"American industrial capital",res:"Wire, rail &amp; oil",
+ {era:"1870 \u2013 1911",name:"The United States",culprit:"The industrial trusts",res:"Wire, rail &amp; oil",
   one:"Unrestrained capital corners the continent's infrastructure; the regulator finally answers.",
   d:"Post-Civil-War America lets industrial capital run with almost no restraint.",
   b:"Railroads, oil, and the telegraph explode across a continent.",
   r:"Standard Oil corners about 90% of refining. Western Union monopolizes the wire and, with the Associated Press, the news that travels on it.",
   tell:"The tell is that <em>the counter-reaction lands</em>. The Sherman Act (1890), then Standard Oil broken up in 1911.",
   synth:"The Gilded Age is the case that proves the loop can be interrupted. For thirty years the trusts concentrated with almost no check, and the story looked settled. Then a slow political reaction, muckrakers, a new statute, and a decade of litigation, pried the biggest of them apart. It is the strongest historical evidence that reconsolidation is not permanent, only durable, and that the regulator is a real, if late, resolution."},
- {era:"1920 \u2013 1934",name:"American Radio",culprit:"NBC and CBS",res:"The airwaves",
+ {era:"1920 \u2013 1934",name:"The United States",culprit:"NBC &amp; CBS",res:"The airwaves",
   one:"Open air, then chaos, then two networks own the signal that enters your home.",
   d:"The early-1920s airwaves are effectively open. Anyone with a transmitter can broadcast.",
   b:"Hundreds of stations flood the spectrum into a chaos of overlapping interference.",
@@ -663,13 +752,13 @@ var EX=[
     "Walmart buys Vizio to match what your television watches to what you buy at the register.",
     "Experian, the credit bureau, buys its way into advertising identity.",
     "Paramount moves on Warner Bros. Discovery because an audience too small to model is invisible to automated capital, so scale becomes mandatory."]}},
- {era:"1950 \u2013 1967",name:"The Cultural Cold War",culprit:"The CIA's Congress for Cultural Freedom",res:"Narrative",adjacent:true,
+ {era:"1950 \u2013 1967",name:"Washington &amp; Paris",culprit:"The CIA's Congress for Cultural Freedom",res:"Narrative",adjacent:true,
   one:"A state quietly finances a culture of 'freedom', from little magazines to Abstract Expressionism, to win an argument.",
   d:"",b:"",r:"",
   tell:"The prize here is <em>legitimacy itself</em>: the story of which side was free.",
   body:"During the Cultural Cold War, the CIA covertly funded the Congress for Cultural Freedom, bankrolling magazines like <em>Encounter</em>, concert tours, and exhibitions, and quietly promoting American Abstract Expressionism, Jackson Pollock included, as proof that free societies produced free art.",
   synth:"Is it consolidation? Not cleanly, and that is why it sits to the side of the wheel. There was no deregulation, boom, and reconsolidation cycle, and no private roll-up. It was a single sponsor secretly steering a field of ostensibly independent culture. It belongs here as the information and narrative prize taken to its logical end: not owning the news that moves money, but owning the frame through which a whole civilization judges itself. Read it as a cousin of the Fugger information turn, not as a turn of the wheel."},
- {era:"2013 \u2013 now",name:"Today",culprit:"Platforms and consolidating media",res:"Behavior",
+ {era:"2013 \u2013 now",name:"Silicon Valley",culprit:"Platforms and consolidating media",res:"Behavior",
   one:"The prize is no longer distribution. It is a first-party record of what you will do next.",
   d:"Permissive antitrust withdraws restraint while cheap capital courts scale.",
   b:"A streaming and platform gold rush. For a few years the audience is briefly the customer.",
@@ -702,7 +791,7 @@ EX.forEach(function(e){
       '<div class="tell">'+e.tell+'</div>'+
       subhtml+
       '<button class="expand-btn" type="button">Expand &darr;</button>'+
-      '<div class="synth"><div class="synth-inner"><div class="sl">'+(e.adjacent?'Is it a turn of the wheel?':'The deeper cut')+'</div><p>'+e.synth+'</p></div></div>'+
+      '<div class="synth"><div class="synth-inner">'+(e.adjacent?'<div class="sl">Is it a turn of the wheel?</div>':'')+'<p>'+e.synth+'</p></div></div>'+
     '</div></div>';
   var body=el.querySelector('.ex-body');
   var synth=el.querySelector('.synth');
@@ -715,10 +804,22 @@ EX.forEach(function(e){
   expandBtn.addEventListener('click',function(ev){
     ev.stopPropagation();
     var exp=el.classList.toggle('exp');
-    if(exp){synth.style.maxHeight=synth.scrollHeight+'px';expandBtn.innerHTML='Collapse &uarr;';}
-    else{synth.style.maxHeight=null;expandBtn.innerHTML='Expand &darr;';}
-    body.style.maxHeight=(body.scrollHeight+ (exp?synth.scrollHeight:0))+'px';
-    setTimeout(function(){ if(el.classList.contains('open')) body.style.maxHeight=body.scrollHeight+'px'; },10);
+    if(exp){
+      synth.style.maxHeight='none';
+      var sh=synth.scrollHeight;
+      synth.style.maxHeight='0px';
+      void synth.offsetHeight;
+      synth.style.maxHeight=sh+'px';
+      expandBtn.innerHTML='Collapse &uarr;';
+      var base=parseFloat(body.style.maxHeight)||body.scrollHeight;
+      body.style.maxHeight=(base+sh)+'px';
+    }else{
+      var sh2=synth.scrollHeight;
+      var base2=parseFloat(body.style.maxHeight)||body.scrollHeight;
+      synth.style.maxHeight='0px';
+      body.style.maxHeight=Math.max(0,base2-sh2)+'px';
+      expandBtn.innerHTML='Expand &darr;';
+    }
   });
   exlist.appendChild(el);
 });
