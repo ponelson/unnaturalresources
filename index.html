@@ -302,6 +302,47 @@ em{font-style:italic}
 .rv.d1{transition-delay:.06s}.rv.d2{transition-delay:.12s}.rv.d3{transition-delay:.18s}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.bar span{transition:none}}
 
+/* eight-stage clock */
+.clock{display:flex;flex-wrap:wrap;gap:9px;margin:8px 0 0}
+.cstep{flex:1 1 148px;min-width:140px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);padding:16px 17px;display:flex;flex-direction:column;gap:6px}
+.cstep .cn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.05em}
+.cstep .ct{font-family:var(--serif);font-size:17px;font-weight:800;letter-spacing:-.025em;line-height:1.12}
+.cstep .cs{font-size:12.5px;color:#4c5260;line-height:1.4}
+.cstep.p1{border-color:rgba(31,143,78,.3);background:linear-gradient(160deg,rgba(31,143,78,.07),rgba(255,255,255,.5))}
+.cstep.p1 .cn{color:var(--green)}
+.cstep.p2{border-color:rgba(182,95,0,.3);background:linear-gradient(160deg,rgba(182,95,0,.07),rgba(255,255,255,.5))}
+.cstep.p2 .cn{color:var(--orange)}
+.cstep.p3{border-color:rgba(189,43,40,.32);background:linear-gradient(160deg,rgba(189,43,40,.09),rgba(255,255,255,.5))}
+.cstep.p3 .cn{color:var(--red)}
+.cstep.p4{border-color:rgba(0,113,227,.3);background:linear-gradient(160deg,rgba(0,113,227,.07),rgba(255,255,255,.5))}
+.cstep.p4 .cn{color:var(--blue)}
+.cstep.p5{border-color:rgba(107,71,214,.32);background:linear-gradient(160deg,rgba(107,71,214,.09),rgba(255,255,255,.5))}
+.cstep.p5 .cn{color:var(--purple)}
+.cstep .cnew{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);border:1px solid rgba(107,71,214,.28);background:rgba(107,71,214,.07);border-radius:999px;padding:3px 7px;align-self:flex-start;margin-top:2px}
+.clock-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:15px 0 0}
+.clock-legend span{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:#5a606c}
+.clock-legend .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.dot.g{background:var(--green)}.dot.o{background:var(--orange)}.dot.rd{background:var(--red)}.dot.bl{background:var(--blue)}.dot.pu{background:var(--purple)}
+.shortcut{margin:20px 0 0;background:linear-gradient(150deg,rgba(189,43,40,.075),rgba(255,255,255,.45));border:1px solid rgba(189,43,40,.2);border-radius:var(--radius2);padding:19px 21px}
+.shortcut .sct{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--red);margin-bottom:9px}
+.shortcut p{margin:0 0 10px;font-size:14.5px;color:#33414a;line-height:1.55}
+.shortcut p:last-child{margin-bottom:0}
+.shortcut p b{color:#1a1d24}
+
+/* precedents */
+.precs{display:flex;flex-direction:column;gap:14px}
+.prec{display:grid;grid-template-columns:170px 1fr;gap:22px;background:rgba(255,255,255,.73);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);padding:23px 25px}
+.prec-l .pw{font-family:var(--serif);font-size:20px;font-weight:900;letter-spacing:-.03em;line-height:1.08;color:#1a1d24}
+.prec-l .pd{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--muted);margin-top:7px;line-height:1.4}
+.prec-l .pm{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:11px;display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(189,43,40,.09);color:#bd2b28;border:1px solid rgba(189,43,40,.22)}
+.prec-r p{margin:0;font-size:14.5px;color:#3f4550;line-height:1.55}
+.prec-r .pout{margin-top:11px;font-size:13.5px;color:#33414a;padding-left:14px;border-left:2px solid var(--orange);line-height:1.48}
+.prec-r .pout b{color:#1a1d24}
+.built{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+.bitem{flex:1 1 210px;min-width:200px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:16px;padding:15px 17px;box-shadow:var(--shadow2)}
+.bitem .bh{font-family:var(--serif);font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:#1a1d24}
+.bitem .bs{font-size:12.5px;color:#4c5260;line-height:1.42;margin-top:5px}
+
 @media(max-width:1000px){
   .stats,.funflation,.bignum-row{grid-template-columns:1fr 1fr}
   .split,.shield-grid,.shapes{grid-template-columns:1fr}
@@ -322,6 +363,7 @@ em{font-style:italic}
   .stats,.funflation,.bignum-row{grid-template-columns:1fr}
   .beats{grid-template-columns:1fr}
   .dim-row{grid-template-columns:1fr 1fr}
+  .prec{grid-template-columns:1fr;gap:12px}
   .dim-key{grid-column:1/3;padding:16px 20px 4px;font-size:16px}
   .dim-then,.dim-now{border-left:none}
   .dim-now{border-left:1px solid var(--line)}
@@ -345,6 +387,7 @@ em{font-style:italic}
       <a href="#engine" data-target="engine">Engine</a>
       <a href="#history" data-target="history">History</a>
       <a href="#shield" data-target="shield">The shield</a>
+      <a href="#precedent" data-target="precedent">Precedent</a>
       <a href="#america" data-target="america">America</a>
       <a href="#escape" data-target="escape">The escape</a>
       <a href="#compute" data-target="compute">Compute</a>
@@ -406,6 +449,38 @@ em{font-style:italic}
 
     <p class="sub rv d2" style="margin-top:34px">The state grants privilege or lifts a restraint, and wealth and power pool. Then that reconsolidation <em>is</em> the deregulated ground the next cycle acts on. There is no finish, only the next turn. <b>The tighter the reconsolidation, the closer the prize sits to the person.</b></p>
     <div class="note rv d2">The shape recurs; the cause rarely does. Song China monopolized paper money to finance a war of survival, not to cash in a boom. <em>The engine names the pattern, not the motive.</em></div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:64px 0 8px">The full circuit, in eight stages.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 8px;max-width:76ch">Three strokes is what you see from inside a single turn, and it is the arc each of the nine turns below traces. But three strokes cannot close a circle, because they leave out the part where the public fights back and wins. Widen the frame to the political response and the engine resolves into a full circuit, and the two stages nobody draws turn out to be the ones that do the real work.</p>
+    <p class="rv" style="color:#4c5260;margin:0 0 26px;max-width:76ch">A rule that prevents a disaster produces no evidence of the disaster it prevented. Its cost shows up every quarter. Its benefit is a counterfactual nobody can see. That asymmetry is not a flaw in the settlement. It is the timer on it.</p>
+
+    <div class="clock rv d1">
+      <div class="cstep p1"><div class="cn">01</div><div class="ct">Deregulation</div><div class="cs">Restraint is withdrawn, or a privilege granted. The unlock.</div></div>
+      <div class="cstep p1"><div class="cn">02</div><div class="ct">Boom</div><div class="cs">A rush of access and new entrants. The land rush.</div></div>
+      <div class="cstep p2"><div class="cn">03</div><div class="ct">Consolidation</div><div class="cs">Survivors collapse into a few. The field narrows.</div></div>
+      <div class="cstep p2"><div class="cn">04</div><div class="ct">Extraction</div><div class="cs">Growth continues; its distribution narrows. The take widens.</div></div>
+      <div class="cstep p3"><div class="cn">05</div><div class="ct">Crisis</div><div class="cs">The mechanism fails where everyone can see it.</div></div>
+      <div class="cstep p4"><div class="cn">06</div><div class="ct">Regulation</div><div class="cs">The restraint is reimposed, but only if a plan was waiting.</div></div>
+      <div class="cstep p4"><div class="cn">07</div><div class="ct">Stability</div><div class="cs">It works. The crisis stops recurring. The golden years.</div><div class="cnew">the stage nobody draws</div></div>
+      <div class="cstep p5"><div class="cn">08</div><div class="ct">Amnesia</div><div class="cs">The generation that remembers the wound retires or dies.</div><div class="cnew">the stage nobody draws</div></div>
+    </div>
+    <div class="loopback rv d1"><span>and stage eight is the deregulated ground of stage one</span><span class="ln"></span></div>
+    <div class="clock-legend rv d1">
+      <span><span class="dot g"></span>unlock and expansion</span>
+      <span><span class="dot o"></span>concentration and extraction</span>
+      <span><span class="dot rd"></span>the break</span>
+      <span><span class="dot bl"></span>the settlement</span>
+      <span><span class="dot pu"></span>its decay</span>
+    </div>
+
+    <p class="sub rv d2" style="margin-top:36px">Stage seven is the trap, and it is built out of the settlement's own success. Minsky's formulation is that stability is itself destabilizing, because a long calm teaches everyone the calm is natural rather than maintained. Stage eight is what the calm is used for. Thirty years is enough time to staff the agencies, fund the chairs, and stage a complete intellectual alternative in the wings, waiting for the crisis that will make it the only answer lying around. <b>Deregulation is not the beginning of the cycle. It is the last act of the forgetting.</b></p>
+
+    <div class="shortcut rv d2">
+      <div class="sct">The weak arrow, and the short circuit</div>
+      <p>Every arrow on that circuit is load-bearing except one. <b>Crisis does not produce regulation. Crisis produces regulation only when an organized constituency and a finished program are both already waiting.</b> 1929 had labor, Brandeis, and Keynes queued up, and produced the New Deal. 1973 had Chicago queued up, and produced the deregulation that starts the current turn. Both crises were answered because someone had spent the quiet years preparing an answer.</p>
+      <p>2008 had neither. And what happened instead is the thing the diagram has to admit: the largest banks got larger, roughly seven million foreclosed homes changed hands, and a share of them flowed into an institutional single-family rental asset class that had not existed as a category before 2010. Stage five ran straight back into stage three. <b>Regulation was skipped, not delayed.</b></p>
+      <p>Which means the circuit has a bypass. When no program is waiting, a crisis is not a correction of the concentration. It is an acquisition event for it, and the wreckage is the inventory.</p>
+    </div>
   </div>
 </section>
 
@@ -455,10 +530,94 @@ em{font-style:italic}
   </div>
 </section>
 
+<!-- PRECEDENT -->
+<section class="section" id="precedent">
+  <div class="wrap">
+    <div class="kicker">05 &nbsp;/&nbsp; The precedent</div>
+    <h2>An owner's country is the exception, not the baseline.</h2>
+    <p class="sub">The obvious question about a shield being disassembled is whether any society has actually gone the other way: from owners with equity to tenants with debt. It has happened at least five times, and the precedents are unkind. In every case the mechanism was legal, gradual, and described at the time as modernization.</p>
+
+    <div class="precs">
+      <div class="prec rv">
+        <div class="prec-l">
+          <div class="pw">Rome loses its farmer-soldiers</div>
+          <div class="pd">c. 200 &ndash; 50 BCE</div>
+          <div class="pm">debt + absence</div>
+        </div>
+        <div class="prec-r">
+          <p>The republic was built on smallholders who owned the land they fought for. Long campaigns kept them away from their fields, debt accumulated in their absence, and senatorial families consolidated the vacated ground into slave-worked estates. The dispossessed became tenants; by the late Empire tenancy was hereditary and legally bound to the soil. The Gracchi attempted land redistribution in 133 and 123 BCE. Both were killed.</p>
+          <div class="pout"><b>What it cost:</b> a citizenry without a stake attaches itself to patrons, and then to a strongman. The republican form did not survive the loss of the owner-citizen.</div>
+        </div>
+      </div>
+
+      <div class="prec rv">
+        <div class="prec-l">
+          <div class="pw">English enclosure</div>
+          <div class="pd">c. 1500 &ndash; 1850</div>
+          <div class="pm">legal conversion</div>
+        </div>
+        <div class="prec-r">
+          <p>Common use-rights are a form of equity even without title, and roughly four thousand acts of Parliament converted them into private holdings. Output rose. Ownership concentrated so severely that the 1873 land survey became a political scandal when it revealed how few families held the country. The people who lost their rights became the urban tenantry that industrialization ran on.</p>
+          <div class="pout"><b>What it cost:</b> nothing was stolen. Every step was lawful, incremental, and defended as efficiency. This is the case proving dispossession does not require a villain, only a statute and three centuries.</div>
+        </div>
+      </div>
+
+      <div class="prec rv">
+        <div class="prec-l">
+          <div class="pw">The American South after Reconstruction</div>
+          <div class="pd">1865 &ndash; 1940</div>
+          <div class="pm">the debt engine</div>
+        </div>
+        <div class="prec-r">
+          <p>Freedmen had a brief and real path to ownership, and it was deliberately closed. What replaced it was sharecropping plus the crop lien: a furnish merchant advanced supplies against the coming harvest, and the settling-up at year's end reliably came out short. By 1920 roughly three-quarters of Black farmers in the South were tenants or croppers.</p>
+          <div class="pout"><b>What it cost:</b> the closest structural analogy to the present, because the instrument was not confiscation. It was credit, and it was engineered so the ledger never cleared.</div>
+        </div>
+      </div>
+
+      <div class="prec rv">
+        <div class="prec-l">
+          <div class="pw">Weimar Germany</div>
+          <div class="pd">1922 &ndash; 1932</div>
+          <div class="pm">monetary erasure</div>
+        </div>
+        <div class="prec-r">
+          <p>Hyperinflation vaporized savings and bond holdings, which is to say it vaporized the middle class's equity, in roughly eighteen months. Then deflation and depression took the wages too. The German middle class was destroyed from both directions inside a single decade.</p>
+          <div class="pout"><b>What it cost:</b> the case proving the transition need not be slow. A monetary event can do in a year what enclosure took three centuries to do, and the political consequence arrives on the same compressed schedule.</div>
+        </div>
+      </div>
+
+      <div class="prec rv">
+        <div class="prec-l">
+          <div class="pw">Post-Soviet Russia</div>
+          <div class="pd">1991 &ndash; 1999</div>
+          <div class="pm">universal equity, briefly</div>
+        </div>
+        <div class="prec-r">
+          <p>Voucher privatization nominally made every citizen a shareholder. Within four years the vouchers had been bought up for near nothing, loans-for-shares handed the commanding heights to about two dozen men, and the 1998 default finished off what remained of household savings.</p>
+          <div class="pout"><b>What it cost:</b> universal ownership to extreme concentration in under a decade, with the paperwork of a share-owning democracy the whole way through. Nominal equity is not equity.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:58px 0 6px">Every owner-democracy was built on purpose.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 20px;max-width:76ch">Run the precedents in reverse and the more important finding appears. Broad ownership has almost never arrived on its own. It has to be constructed, usually by a state, usually in the aftermath of a catastrophe severe enough to make the construction politically possible. Five of them, all deliberate:</p>
+    <div class="built rv d1">
+      <div class="bitem"><div class="bh">The Homestead Acts</div><div class="bs">From 1862, title granted in exchange for occupation and improvement. Ownership manufactured out of statute and surveying.</div></div>
+      <div class="bitem"><div class="bh">The amortizing mortgage</div><div class="bs">The thirty-year self-liquidating loan did not evolve. It was invented to replace the balloon note that detonated in 1929.</div></div>
+      <div class="bitem"><div class="bh">The GI Bill</div><div class="bs">Sixteen million returning servicemen given the down payment and the degree at once, on the public account.</div></div>
+      <div class="bitem"><div class="bh">Land reform in occupied Asia</div><div class="bs">Japan, Taiwan, and South Korea had tenancy broken up by administrative order after 1945, which is why they industrialized with a landowning countryside.</div></div>
+      <div class="bitem"><div class="bh">Postwar European housing</div><div class="bs">Bombed-out states built and sold the stock directly, because no private market would have produced it at that price.</div></div>
+    </div>
+
+    <p class="pull rv d2" style="margin:44px auto 0;text-align:center;max-width:58ch">Tenancy is the default gravity. The last eighty years were the exception, and the exception was <em>load-bearing scaffold</em>.</p>
+    <div class="note rv d2" style="max-width:80ch;margin-left:auto;margin-right:auto">So the question was never whether a society can go from owner to renter. It is that going the other way is the thing that requires effort, and the effort stopped. What the next section documents is not a collapse. <b>It is a withdrawal of maintenance.</b></div>
+  </div>
+</section>
+
 <!-- AMERICA -->
 <section class="section" id="america">
   <div class="wrap">
-    <div class="kicker">05 &nbsp;/&nbsp; America, 1950 &rarr; 2026</div>
+    <div class="kicker">06 &nbsp;/&nbsp; America, 1950 &rarr; 2026</div>
     <h2>From an owner's country to a renter's country.</h2>
     <p class="sub">The media wave is a symptom. The disease is a seventy-year migration in how Americans hold their lives: from equity to debt, from rooted to mobile, from a future you saved for to a present you finance. Wealth re-pooled at the top, land and homes aggregated into a few hands, healthcare became a private tax, and the retirement risk the employer once carried moved onto the household.</p>
 
@@ -491,7 +650,7 @@ em{font-style:italic}
 <!-- ESCAPE / CLOSE -->
 <section class="section" id="escape">
   <div class="wrap">
-    <div class="kicker">06 &nbsp;/&nbsp; The turn</div>
+    <div class="kicker">07 &nbsp;/&nbsp; The turn</div>
     <h2>A foreclosed audience is sold shallower stories, and its behavior is the price.</h2>
     <p class="sub">When a household can no longer buy a future, it buys the present, on credit. The business model tracks the balance sheet. Advertiser, then subscription, then the advertiser quietly reinstalled inside the subscription, now holding an X-ray of you. The prize is no longer the title library. It is custody of the modeled human.</p>
 
@@ -527,10 +686,16 @@ em{font-style:italic}
       </div>
       <div class="r-item walk">
         <div class="rt">The walk-out</div>
-        <p>The audience simply leaves for what cannot be modeled. This is the quietest exit, and the only one already fully underway. The postwar owner-equity household was itself a walk-out, a nation refusing to go back to the exposed renter it had been in 1929. The <em>Backrooms</em> audience is a smaller, stranger version of the same refusal: value migrating to whatever the machine cannot yet price.</p>
+        <p>The audience simply leaves for what cannot be modeled. This is the quietest exit, and the only one already fully underway. The postwar owner-equity household was itself a walk-out, a nation refusing to go back to the exposed renter it had been in 1929, and as <a href="#precedent" style="color:var(--blue)">the precedent section</a> shows, that refusal had to be built rather than merely felt. The <em>Backrooms</em> audience is a smaller, stranger version of the same refusal: value migrating to whatever the machine cannot yet price.</p>
       </div>
     </div>
     <p class="resolve-synth rv d2">The crash punishes the concentration. The regulator dismantles it. The walk-out starves it. This time, all three are visible at once.</p>
+    <div class="shortcut rv d2" style="margin-top:26px">
+      <div class="sct">The fourth outcome, which is not an exit</div>
+      <p>There is a fourth thing that can happen, and it is the one the three-exit frame hides. The crash can arrive and resolve <em>in favor of</em> the concentration. That is the bypass on the circuit: stage five running straight back into stage three, skipping the regulator entirely, because no constituency and no finished program were waiting to catch it.</p>
+      <p>2008 is the demonstration. The largest banks emerged larger. Roughly seven million foreclosed homes changed hands, and a share of them became the founding inventory of an institutional single-family rental asset class that had not existed as a category before 2010. The households that lost equity did not get it back under new rules. They got a lease from the buyer. <b>The wreckage was not the cost of the crisis. It was the merchandise.</b></p>
+      <p>Which is the sharper reading of where this turn sits. Not that we are somewhere on the wheel awaiting the regulator, but that the bypass has already been shown to work twice in twenty years, and the thing stage six requires, an organized constituency holding a finished alternative, is the one item nobody assembled during the calm.</p>
+    </div>
 
     <h3 class="rv" style="font-family:var(--serif);font-size:22px;font-weight:800;letter-spacing:-.03em;margin:48px 0 8px">Why the crash keeps not arriving.</h3>
     <p class="rv" style="color:#4c5260;margin:0 0 14px;max-width:74ch">Look closer at that first exit, because it has changed shape. The panics of 1873, 1893, and 1907, and the crash of 1929, all resolved the same brutal way, through liquidation and deflation. Gold was the binding constraint, so the losses fell on debtors and workers, and rescue was either private or absent. J.P. Morgan personally backstopped the U.S. Treasury in 1895 and organized the rescue of 1907 because no one else could. The populist demand of that era was for inflation, since inflation relieves the indebted. In 1971 the dollar's last tie to gold was cut, and that constraint disappeared. After that, nearly every collapse that might have liquidated the system was converted into inflation and bailout instead: the liquidity flood after 1987, the 1998 rescue of Long-Term Capital, the $700 billion TARP and the trillions the Fed lent beside it in 2008, a balance sheet that swelled toward $9 trillion by 2022, the backstop of Silicon Valley Bank in 2023. Collapse got traded for debasement.</p>
@@ -605,7 +770,7 @@ em{font-style:italic}
 <section class="section" id="compute">
   <div class="wrap">
     <div class="panel finale rv" style="padding:34px 36px">
-      <div class="kicker">07 &nbsp;/&nbsp; The finale</div>
+      <div class="kicker">08 &nbsp;/&nbsp; The finale</div>
       <h2 style="margin-bottom:18px">When compute ate culture.</h2>
       <p class="sub" style="margin-bottom:14px">A fortune built selling databases now owns the studio that made <em>Casablanca</em>. The framing that this is a media story misses the point. It is a compute story, and the way it was paid for gives it away.</p>
       <p class="sub" style="margin-bottom:6px">It did not begin with Paramount. For a decade the same money has moved in the same direction: fortunes built in software, cloud, search, and e-commerce, buying the institutions that make and hold culture.</p>
