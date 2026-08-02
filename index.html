@@ -257,6 +257,8 @@ em{font-style:italic}
 .shape.last .sn,.shape.last .stxt{color:var(--ink)}
 .shape.last .stxt{background:linear-gradient(100deg,#111,#0071e3 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
 
+.dstep.next{background:rgba(107,71,214,.06);border-color:rgba(107,71,214,.34);border-style:dashed}
+.dstep.next .dn,.dstep.next .dr{color:var(--purple)}
 /* wheel distillation (under the nine turns) */
 .distill{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-top:8px}
 .dstep{flex:1 1 150px;min-width:140px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow2);padding:15px 16px;display:flex;flex-direction:column;gap:6px}
@@ -384,13 +386,14 @@ em{font-style:italic}
   <div class="nav-inner">
     <div class="navlinks" id="navlinks">
       <a href="#thesis" data-target="thesis">Thesis</a>
+      <a href="#compute" data-target="compute">Compute</a>
       <a href="#engine" data-target="engine">Engine</a>
       <a href="#history" data-target="history">History</a>
-      <a href="#shield" data-target="shield">The shield</a>
-      <a href="#precedent" data-target="precedent">Precedent</a>
       <a href="#america" data-target="america">America</a>
+      <a href="#precedent" data-target="precedent">Precedent</a>
+      <a href="#shield" data-target="shield">The shield</a>
       <a href="#escape" data-target="escape">The escape</a>
-      <a href="#compute" data-target="compute">Compute</a>
+      <a href="#advertiser" data-target="advertiser">Advertising</a>
     </div>
     <div class="navcontact">
       <a class="cbtn" href="mailto:ponelson@gmail.com" aria-label="Email Peter Nelson"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
@@ -414,25 +417,89 @@ em{font-style:italic}
   </div>
 </header>
 
+
 <!-- THESIS / LADDER -->
 <section class="section" id="thesis">
   <div class="wrap">
     <div class="kicker">01 &nbsp;/&nbsp; The thesis</div>
     <h2>Nine names for one prize.</h2>
-    <p class="sub">The prize keeps changing costume. Land, money, trade, the news, the press, the wire, the air, the screen, and now behavior itself. Tap any name to see what it was and why owning it converted into power. Watch the prize move steadily inward, until it is no longer around the person but inside them.</p>
+    <p class="sub">The prize keeps changing costume. Land, money, trade, the news, the press, the wire, the air, the screen, and now behavior itself. One rung sits past the end of the list, and the last part of this section is about that one. Tap any name to see what it was and why owning it converted into power. Watch the prize move steadily inward, until it is no longer around the person but inside them.</p>
 
     <div class="lad-detail rv" id="ladDetail"></div>
     <div class="rungs rv d1" id="rungs"></div>
     <div class="lad-axis rv d1"><span>outside the person</span><span>inside the person</span></div>
 
     <div class="note rv d2">The same balance sheet that turned the household from owner to renter is turning the audience from customer to inventory. Same instinct, one order of magnitude closer.</div>
+
+    <h3 class="rv d2" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:56px 0 8px">The rung after prediction.</h3>
+    <p class="rv d2" style="color:#3a4049;margin:0 0 14px;max-width:76ch">The ladder above stops at behavior because that is where the money has reached. It is not where the logic stops. <b>Prediction is an intermediate good.</b> A forecast is worth only what it can be used to change, which means a model that predicts you imperfectly while moving you reliably is worth more than a flawless forecaster that cannot move you at all. Accuracy is the cost line. Influence is the revenue line.</p>
+    <p class="rv d2" style="color:#3a4049;margin:0 0 14px;max-width:76ch">So the commercial pressure runs one step further than the diagram: from anticipating conduct to <em>producing</em> it. And that step changes the nature of the business, not just its margin. Extraction takes something that already existed. <b>Manufacture makes the thing it sells.</b> An advertiser who predicts your purchase is buying information. An operator who can reliably produce the purchase is no longer selling information at all. It is selling output, and the person is the production line rather than the customer.</p>
+    <p class="rv d2" style="color:#3a4049;margin:0 0 14px;max-width:76ch">This is the one claim in this piece about something that has not finished happening, and it should be read at that discount. But note how every earlier rung arrived. Enclosure was efficiency. The crop lien was credit. The recommendation feed was convenience. <em>None of them were legible as capture until after the ledger had already changed hands.</em></p>
+    <div class="tell rv d2" style="margin-top:18px;max-width:74ch">The tell to watch for is the pricing model. The moment a system charges for outcomes rather than for reach or for insight, someone has decided that conduct is manufacturable, and has found a buyer willing to pay for units of it.</div>
+  </div>
+</section>
+
+<!-- COMPUTE (finale) -->
+<section class="section" id="compute">
+  <div class="wrap">
+    <div class="panel finale rv" style="padding:34px 36px">
+      <div class="kicker">02 &nbsp;/&nbsp; Compute</div>
+      <h2 style="margin-bottom:18px">When compute ate culture.</h2>
+      <p class="sub" style="margin-bottom:14px">A fortune built selling databases now owns the studio that made <em>Casablanca</em>. Start here, because the framing that this is a media story misses the point. It is a compute story, and the way it was paid for gives it away.</p>
+      <p class="sub" style="margin-bottom:6px">It did not begin with Paramount. For a decade the same money has moved in the same direction: fortunes built in software, cloud, search, and e-commerce, buying the institutions that make and hold culture.</p>
+
+      <div class="ctl-cap">Compute money buying culture, 2013 to now</div>
+      <div class="ctl rv d1">
+        <div class="ctl-item identity"><div class="ctl-yr">2013</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Jeff Bezos buys The Washington Post<span class="amt">$250M</span></div><div class="ctl-why">The Amazon and AWS founder buys a bleeding civic institution and rebuilds its data and engineering stack into a high-traffic subscriber engine. The proof of concept for everything that follows.</div></div></div>
+        <div class="ctl-item arena"><div class="ctl-yr">2014</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Ballmer buys the LA Clippers<span class="amt">$2B</span></div><div class="ctl-why">Microsoft's enterprise-software fortune lands in the NBA. Tech utility money moving into live physical monoculture.</div></div></div>
+        <div class="ctl-item identity"><div class="ctl-yr">2017</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Laurene Powell Jobs takes The Atlantic<span class="amt">majority stake</span></div><div class="ctl-why">Apple-scale wealth, through Emerson Collective, takes control of a magazine founded in 1857 and keeps a legacy narrative engine running.</div></div></div>
+        <div class="ctl-item identity"><div class="ctl-yr">2018</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Patrick Soon-Shiong buys the LA Times<span class="amt">~$500M</span></div><div class="ctl-why">A biotech and health-tech fortune rescues the West Coast's largest newsroom and anchors it to a science-IP portfolio.</div></div></div>
+        <div class="ctl-item identity"><div class="ctl-yr">2018</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Marc Benioff buys Time<span class="amt">$190M</span></div><div class="ctl-why">The Salesforce founder personally buys the nearly century-old newsweekly, a cloud SaaS titan taking custody of a legacy print brand.</div></div></div>
+        <div class="ctl-item arena"><div class="ctl-yr">2019</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Joe Tsai buys the Brooklyn Nets<span class="amt">$2.35B</span></div><div class="ctl-why">Alibaba's co-founder pays a U.S. sports record, marrying Chinese e-commerce and cloud wealth to NBA distribution.</div></div></div>
+        <div class="ctl-item arena"><div class="ctl-yr">2020</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Ryan Smith buys the Utah Jazz<span class="amt">$1.66B</span></div><div class="ctl-why">Qualtrics experience-software money buys the Jazz, then stands up the Utah Hockey Club in 2024, reshaping a region's sports culture.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2021</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Naver acquires Wattpad<span class="amt">~$600M</span></div><div class="ctl-why">South Korea's search and e-commerce giant buys the largest web-fiction community, a database engine acquiring a narrative factory of Gen Z writers.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2022</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Amazon acquires MGM<span class="amt">$8.45B</span></div><div class="ctl-why">AWS and e-commerce absorb nearly a century of Hollywood, the library pulled in mainly to drive Prime retention and feed the ad engine.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2022</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Elon Musk buys Twitter<span class="amt">$44B</span></div><div class="ctl-why">The real-time public square becomes the core training set for xAI and its model Grok. A communication hub, revealed as an AI training ground.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2023</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Microsoft buys Activision Blizzard<span class="amt">$68.7B</span></div><div class="ctl-why">The largest deal in gaming history absorbs Call of Duty and World of Warcraft, the social worlds where a generation forms its identity.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">now</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Tencent's global gaming roll-up<span class="amt">stakes + buys</span></div><div class="ctl-why">Stakes in Epic and FromSoftware and outright buys elsewhere let one internet and cloud giant steer interactive culture from the backend.</div></div></div>
+        <div class="ctl-item all"><div class="ctl-yr">2024&ndash;26</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Josh Kushner's Thrive Capital<span class="amt">Life &middot; A24 &middot; Giants</span></div><div class="ctl-why">The fund behind OpenAI and Stripe buys across all three classes at once: the Life brand through Bedford Media, a board seat at A24 after leading its $3.5 billion round, and a 2026 stake in the San Francisco Giants through Thrive Eternal, a vehicle built for cultural assets that technology cannot replicate.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2024</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Skydance merges with Paramount<span class="amt">~$8B</span></div><div class="ctl-why">David Ellison takes Paramount, and roughly $6 billion of the price is his father Larry, the Oracle founder, underwriting the buy. A database dynasty acquiring a century of film.</div></div></div>
+        <div class="ctl-item"><div class="ctl-yr">2026</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Paramount Skydance bids for Warner Bros.<span class="amt">~$110B</span></div><div class="ctl-why">The same move an order of magnitude larger. Larry Ellison backstops about $40 billion to fold Warner into the empire. Halted by court order on July 20, 2026, at the request of twelve state attorneys general, and now postponed until after trial.</div></div></div>
+      </div>
+      <div class="ctl-legend rv d2"><span><i class="dot d"></i>The asset is training data</span><span><i class="dot i"></i>The asset is influence</span><span><i class="dot a"></i>The asset is the live crowd</span><span><i class="dot all"></i>All three at once</span></div>
+
+      <p class="sub" style="margin:18px 0 14px">Read as a list it looks like billionaires collecting trophies. Read as a balance sheet it is closer to one motion, compute money flowing into the institutions that make culture. Some of it is training data outright, the audio library, the fan-fiction archive, the game world, the live public feed that trains a model. Some is influence, and some is simply the most engaged crowd money can buy. The direction is the point. Paramount is where it stopped being a sideline and became the main event.</p>
+
+      <p class="sub" style="margin-bottom:14px">Look at the money. The original 2024 Skydance and Paramount deal was valued at about $8 billion, and roughly $6 billion of it was Larry Ellison, the Oracle founder, personally underwriting his son David's acquisition. It was less a media merger than a father buying his son a studio.</p>
+      <p class="sub" style="margin-bottom:14px">The Warner Bros. bid only sharpens the pattern. Paramount Skydance's roughly $110 billion move on Warner Bros. Discovery (about $81 billion in equity, near $110 billion including debt) became credible only once Larry Ellison agreed to personally backstop about $40 billion of the financing, after Warner's board worried Paramount was too thin to close. The same underwriting, one order of magnitude larger. The financing was never the binding constraint. As of late July 2026 the deal holds shareholder approval and Justice Department clearance, and it is nonetheless stopped: a federal judge in the Northern District of California granted a temporary restraining order on July 20 at the request of twelve state attorneys general, extended it to August 17, and wrote that the combined firm's share of wide-release theatrical distribution was enough on its own to presume a likely violation. Paramount has since agreed to hold the transaction until after the antitrust trial, pushing any close toward mid-2027, while the European Union reviews it and the British culture secretary has said she is minded to intervene.</p>
+
+      <div class="bignum-row">
+        <div class="bignum"><div class="n">$6<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">of the $8B initial Paramount deal was Larry Ellison underwriting his son</div></div>
+        <div class="bignum"><div class="n">$40<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">the financing Ellison later agreed to backstop for the Warner bid</div></div>
+        <div class="bignum"><div class="n">$110<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">the Warner Bros. Discovery move, including debt</div></div>
+      </div>
+
+      <p class="sub" style="margin:22px 0 0">Why would database money want the studio that made <em>Casablanca</em>? Because the title library is no longer the asset. The asset is the audience the library assembles, rendered as a first-party, machine-legible record of behavior. Storage, identity, and compute are what price and steer that record. To this kind of capital, a studio is a very large, very loyal dataset with a back catalog attached.</p>
+
+      <p class="sub" style="margin:18px 0 0">Which raises the question this whole piece turns on: an asset is worth what it produces, so what does a behavioral record produce? <b>Prediction.</b> A model is worth the data it trains on and the feedback loop it can close, and culture is the only industry that hands over both at once. It supplies the corpus, the film and the music and the fan fiction and the game world and the live public feed. Then it supplies something rarer: a continuous record of humans choosing. Every play, skip, pause, rewatch and abandonment is a labeled example of a person deciding what they want next, produced voluntarily, at scale, by an audience whose attention is already engaged.</p>
+
+      <p class="sub" style="margin:18px 0 0">A recommendation engine is not a convenience feature. It is a prediction engine trained on that record, and it improves the way models improve, which is to say it compounds. That is the asymmetry that explains the price tags. <em>A catalog depreciates. A behavioral record appreciates</em>, because every new observation sharpens the estimate of the next one, and the estimate is what can be sold, steered, priced and defended against whoever does not have it.</p>
+
+      <p class="sub" style="margin:18px 0 0">This is also the exact hinge of the thesis. You can own an acre, a mint, a canal, a printing press or a broadcast frequency, and none of them tell you what a person will do tomorrow. Storage, identity and compute are the first arrangement in which the thing owned is the forecast itself. <b>Compute did not eat culture for the stories. It ate culture because culture is where prediction gets its training set, and prediction is the last resource on the list.</b></p>
+      <p class="sub" style="margin:18px 0 0">And then, in 2025, the same fortune reached past the catalog for the engine itself. When Washington forced TikTok into American ownership, Larry Ellison's Oracle took a fifteen percent stake in the new US company, agreed to host its data, and began retraining its recommendation algorithm on its own cloud. A studio is a behavioral dataset with a back catalog attached. TikTok is the dataset with nothing attached at all, no library and no stars, only the record of what a hundred and seventy million people watch and the machine that predicts what they will want next. The man buying the history of film now curates the feed that decides what comes after it.</p>
+    </div>
+
+    <div class="finalquote rv d1">
+      <p>Content may be king, but distribution is certainly the kingdom, and today <em>computation is the currency that finances the empire.</em></p>
+    </div>
+    <div class="note rv d2" style="margin-top:26px;max-width:80ch"><b>Read forward from here.</b> Everything after this section is the machine that produced that sentence: the engine that keeps rebuilding this arrangement, the two thousand years of it, what it did to the American household, what it did to five societies before ours, what it takes to build the other way, and where the exits are.</div>
   </div>
 </section>
 
 <!-- ENGINE -->
 <section class="section" id="engine">
   <div class="wrap">
-    <div class="kicker">02 &nbsp;/&nbsp; The engine</div>
+    <div class="kicker">03 &nbsp;/&nbsp; The engine</div>
     <h2>This is not a new pattern.</h2>
     <p class="sub">The surface changes. Underneath runs the same three-stroke engine, and it does not stop at the end. It loops, and each loop starts from the wreckage of the last.</p>
 
@@ -449,6 +516,13 @@ em{font-style:italic}
 
     <p class="sub rv d2" style="margin-top:34px">The state grants privilege or lifts a restraint, and wealth and power pool. Then that reconsolidation <em>is</em> the deregulated ground the next cycle acts on. There is no finish, only the next turn. <b>The tighter the reconsolidation, the closer the prize sits to the person.</b></p>
     <div class="note rv d2">The shape recurs; the cause rarely does. Song China monopolized paper money to finance a war of survival, not to cash in a boom. <em>The engine names the pattern, not the motive.</em></div>
+
+    <div class="shortcut rv d2" style="background:linear-gradient(150deg,rgba(0,113,227,.07),rgba(255,255,255,.45));border-color:rgba(0,113,227,.2)">
+      <div class="sct" style="color:var(--blue)">The throttle nobody names</div>
+      <p>The circuit explains why the shape recurs. It does not explain the timing, and the timing has an obvious driver the deal coverage mostly skips: <b>the price of money.</b> A decade of near-zero rates is what taught capital to buy scale rather than earn it, because when borrowing is close to free, the cheapest route to earnings is acquiring somebody else's.</p>
+      <p>Except that era has ended, which is the interesting part. The Fed has held at three and a half to three and three-quarter percent through five consecutive meetings, three regional presidents dissented in July 2026 in favor of raising rather than cutting, and the balance sheet has been drawn down from its roughly nine trillion dollar peak. Money is not cheap now. <b>And the roll-up is accelerating anyway.</b></p>
+      <p>That is not a contradiction. It is the explanation for who is doing the buying. When credit is expensive, the field of buyers narrows to those who do not need credit, and a $40 billion personal backstop stops looking like vanity and starts looking like the only remaining financing structure. <em>Expensive money does not stop consolidation. It decides whose consolidation it will be</em>, and it hands the decision to whoever is sitting on a compute fortune.</p>
+    </div>
 
     <h3 class="rv" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:64px 0 8px">The full circuit, in eight stages.</h3>
     <p class="rv" style="color:#4c5260;margin:0 0 8px;max-width:76ch">Three strokes is what you see from inside a single turn, and it is the arc each of the nine turns below traces. But three strokes cannot close a circle, because they leave out the part where the public fights back and wins. Widen the frame to the political response and the engine resolves into a full circuit, and the two stages nobody draws turn out to be the ones that do the real work.</p>
@@ -480,6 +554,8 @@ em{font-style:italic}
       <p>Every arrow on that circuit is load-bearing except one. <b>Crisis does not produce regulation. Crisis produces regulation only when an organized constituency and a finished program are both already waiting.</b> 1929 had labor, Brandeis, and Keynes queued up, and produced the New Deal. 1973 had Chicago queued up, and produced the deregulation that starts the current turn. Both crises were answered because someone had spent the quiet years preparing an answer.</p>
       <p>2008 had neither. And what happened instead is the thing the diagram has to admit: the largest banks got larger, roughly seven million foreclosed homes changed hands, and a share of them flowed into an institutional single-family rental asset class that had not existed as a category before 2010. Stage five ran straight back into stage three. <b>Regulation was skipped, not delayed.</b></p>
       <p>Which means the circuit has a bypass. When no program is waiting, a crisis is not a correction of the concentration. It is an acquisition event for it, and the wreckage is the inventory.</p>
+      <p><b>One correction, because the claim is too clean.</b> A constituency has in fact assembled during this calm, and it is the one closest to the asset. The 2026 bargaining cycle closed with the writers, the actors and the directors all treating machine systems as the central issue rather than a side letter, building on the 2023 agreements: the SAG-AFTRA summary of its 2026 terms runs to twelve separate provisions on digital replicas, on penalties for using a synthetic performer instead of a person, and on notice when a studio licenses a performer's data to a third party for training. Then the Writers Guild sued to block the Warner merger outright, arguing it would shrink the market for scripts and the terms of the people who write them.</p>
+      <p>But look at what that constituency did <em>not</em> win, because it is the whole ballgame. Consent over likeness: yes. Custody of training material: no. The directors' agreement is silent on training, the writers reserved the right to argue it is already prohibited, and the performers retained the same right without putting it in the contract. <b>The organized constituency exists. The finished program is half-written, and the missing half is the half about custody</b>, which has been left to courts, state legislatures and the copyright agencies to settle. Stage six does not fire on grievance. It fires on a completed answer, and the answer is still out for drafting.</p>
     </div>
   </div>
 </section>
@@ -487,7 +563,7 @@ em{font-style:italic}
 <!-- HISTORY -->
 <section class="section" id="history">
   <div class="wrap">
-    <div class="kicker">03 &nbsp;/&nbsp; Across two thousand years</div>
+    <div class="kicker">04 &nbsp;/&nbsp; Across two thousand years</div>
     <h2>Nine turns of one wheel.</h2>
     <p class="sub">Each turn is a different era capturing a different resource, and each runs the same loop. The header names the era; the story names the culprit. Tap any turn to watch it run, then hit Expand for the deeper synthesis. One case at the end is flagged as adjacent, a cousin of the wheel rather than a turn of it.</p>
     <div class="exlist" id="exlist"></div>
@@ -502,40 +578,52 @@ em{font-style:italic}
       <div class="dstep"><div class="dn">05</div><div class="dt">Own the press that prints what they believe.</div><div class="dr">The press</div></div>
       <div class="dstep"><div class="dn">06</div><div class="dt">Own the signal that enters their home.</div><div class="dr">Wire &middot; air &middot; screen</div></div>
       <div class="dstep last"><div class="dn">07</div><div class="dt">Own the prediction of what they do next.</div><div class="dr">Behavior</div></div>
+      <div class="dstep next"><div class="dn">08</div><div class="dt">Own the production of what they do next.</div><div class="dr">Conduct &middot; not yet</div></div>
     </div>
     <p class="rv d2" style="font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;display:flex;justify-content:space-between;max-width:640px"><span>outside the person</span><span>inside the person</span></p>
   </div>
 </section>
 
-<!-- THE SHIELD: 1920-1950 -->
-<section class="section" id="shield">
+<!-- AMERICA -->
+<section class="section" id="america">
   <div class="wrap">
-    <div class="kicker">04 &nbsp;/&nbsp; America, 1920 &ndash; 1950</div>
-    <h2>The shield, and the wound it answered.</h2>
-    <p class="sub">Before you can watch the owner's country come apart, you have to see that it was built on purpose, as a response to a catastrophe. The equity-rich household of 1945 was not natural or inevitable. It was engineered.</p>
+    <div class="kicker">05 &nbsp;/&nbsp; America, 1950 &rarr; 2026</div>
+    <h2>From an owner's country to a renter's country.</h2>
+    <p class="sub">The media wave is a symptom. The disease is a seventy-year migration in how Americans hold their lives: from equity to debt, from rooted to mobile, from a future you saved for to a present you finance. Wealth re-pooled at the top, land and homes aggregated into a few hands, healthcare became a private tax, and the retirement risk the employer once carried moved onto the household.</p>
 
-    <div class="shield-grid">
-      <div class="shield-card wound rv">
-        <div class="yr">1929</div>
-        <h3>The wound.</h3>
-        <p>Before the crash, a mortgage was a predatory instrument. Loans were short-term, often three to five years, non-amortizing, and structured as balloons that came due all at once. They typically demanded something near 50% down, and even then the borrower built almost no equity, held no safety net, and was fully exposed to any macro shock. When the balloon popped in 1929, it triggered a multi-decade trauma of mass foreclosures and systemic ruin.</p>
-      </div>
-      <div class="shield-card build rv d1">
-        <div class="yr">1945</div>
-        <h3>The postwar shield.</h3>
-        <p>The owner-equity household of 1945 was a deliberate, institutionalized response to that collapse. The long amortizing mortgage, federal deposit insurance, the GI Bill, employer pensions, and a tax code that rewarded acquisition were built, on purpose, to convert a nation of exposed renters into a nation of owners with equity and a cushion. But the shield was also underwritten by an anomaly: the US was the one major industrial economy to emerge from the war unbombed. The policy was real; so was the tailwind that paid for it. The "owner's country" of the next section is that shield at its peak.</p>
-      </div>
+    <div class="toggle rv" id="seg" role="tablist">
+      <button data-y="then" class="on">1950</button>
+      <button data-y="now">2026</button>
+      <button data-y="both">Side by side</button>
     </div>
-    <p class="pull rv d2" style="margin-top:36px">Everything that follows is the slow <em>disassembly</em> of that shield.</p>
+    <div class="state-summary rv" id="stateSummary"></div>
+
+    <div class="ctl-cap rv">Every measure below shares one scale, 0 to 100%</div>
+    <div class="metrics rv" id="metrics"></div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:0 0 6px">Funflation: when deferral stops paying out.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 16px;max-width:72ch">When deferral stops paying out, spending reallocates to the present, and hope for the future thins at the same time. The 2020 response taught the lesson in miniature: the state met a shock by expanding its balance sheet roughly $4.6 trillion and reflating assets, which does little for anyone still trying to save in cash. If deferral is not rewarded and the future looks closed, spending now becomes the rational move. More fun today, and less reason to believe in tomorrow.</p>
+    <div class="funflation rv d1">
+      <div class="ff"><div class="n">66<small>%</small></div><div class="t">of spending buys access, not ownership. Postwar it was near 40%.</div></div>
+      <div class="ff"><div class="n">51<small>%</small></div><div class="t">now say the American Dream is out of reach for most people.</div></div>
+      <div class="ff"><div class="n">46<small>%</small></div><div class="t">do not expect to be financially prepared for retirement.</div></div>
+      <div class="ff"><div class="n">48<small>%</small></div><div class="t">think it likely they will outlive their savings.</div></div>
+    </div>
+
+    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:56px 0 6px">The whole household, then and now.</h3>
+    <p class="rv" style="color:var(--muted);margin:0 0 24px;max-width:70ch">The left column is the culture that won the war. The right is the one that inherited it.</p>
+    <div class="dims rv" id="dims"></div>
+
+    <p class="pull rv d1" style="margin:44px auto 0;text-align:center;max-width:56ch">The one number that barely moved was homeownership, near 65% then and now. But it is propped up by cohorts who bought decades ago. <em>The rate held. The meaning did not.</em></p>
   </div>
 </section>
 
 <!-- PRECEDENT -->
 <section class="section" id="precedent">
   <div class="wrap">
-    <div class="kicker">05 &nbsp;/&nbsp; The precedent</div>
+    <div class="kicker">06 &nbsp;/&nbsp; The precedent</div>
     <h2>An owner's country is the exception, not the baseline.</h2>
-    <p class="sub">The obvious question about a shield being disassembled is whether any society has actually gone the other way: from owners with equity to tenants with debt. It has happened at least five times, and the precedents are unkind. In every case the mechanism was legal, gradual, and described at the time as modernization.</p>
+    <p class="sub">The obvious question about the seventy years just described is whether any society has actually gone the other way: from owners with equity to tenants with debt. It has happened at least five times, and the precedents are unkind. In every case the mechanism was legal, gradual, and described at the time as modernization.</p>
 
     <div class="precs">
       <div class="prec rv">
@@ -610,47 +698,37 @@ em{font-style:italic}
     </div>
 
     <p class="pull rv d2" style="margin:44px auto 0;text-align:center;max-width:58ch">Tenancy is the default gravity. The last eighty years were the exception, and the exception was <em>load-bearing scaffold</em>.</p>
-    <div class="note rv d2" style="max-width:80ch;margin-left:auto;margin-right:auto">So the question was never whether a society can go from owner to renter. It is that going the other way is the thing that requires effort, and the effort stopped. What the next section documents is not a collapse. <b>It is a withdrawal of maintenance.</b></div>
+    <div class="note rv d2" style="max-width:80ch;margin-left:auto;margin-right:auto">So the question was never whether a society can go from owner to renter. It is that going the other way is the thing that requires effort, and the effort stopped. What America's last seventy years document is not a collapse. <b>It is a withdrawal of maintenance.</b></div>
   </div>
 </section>
 
-<!-- AMERICA -->
-<section class="section" id="america">
+<!-- THE SHIELD: 1920-1950 -->
+<section class="section" id="shield">
   <div class="wrap">
-    <div class="kicker">06 &nbsp;/&nbsp; America, 1950 &rarr; 2026</div>
-    <h2>From an owner's country to a renter's country.</h2>
-    <p class="sub">The media wave is a symptom. The disease is a seventy-year migration in how Americans hold their lives: from equity to debt, from rooted to mobile, from a future you saved for to a present you finance. Wealth re-pooled at the top, land and homes aggregated into a few hands, healthcare became a private tax, and the retirement risk the employer once carried moved onto the household.</p>
+    <div class="kicker">07 &nbsp;/&nbsp; America, 1920 &ndash; 1950</div>
+    <h2>The shield, and the wound it answered.</h2>
+    <p class="sub">You have now watched the owner's country come apart, and five earlier societies come apart before it. Before reading any of that as decline, look at what was dismantled. The equity-rich household of 1945 was not natural or inevitable. It was engineered, on purpose, as the answer to a catastrophe.</p>
 
-    <div class="toggle rv" id="seg" role="tablist">
-      <button data-y="then" class="on">1950</button>
-      <button data-y="now">2026</button>
-      <button data-y="both">Side by side</button>
+    <div class="shield-grid">
+      <div class="shield-card wound rv">
+        <div class="yr">1929</div>
+        <h3>The wound.</h3>
+        <p>Before the crash, a mortgage was a predatory instrument. Loans were short-term, often three to five years, non-amortizing, and structured as balloons that came due all at once. They typically demanded something near 50% down, and even then the borrower built almost no equity, held no safety net, and was fully exposed to any macro shock. When the balloon popped in 1929, it triggered a multi-decade trauma of mass foreclosures and systemic ruin.</p>
+      </div>
+      <div class="shield-card build rv d1">
+        <div class="yr">1945</div>
+        <h3>The postwar shield.</h3>
+        <p>The owner-equity household of 1945 was a deliberate, institutionalized response to that collapse. The long amortizing mortgage, federal deposit insurance, the GI Bill, employer pensions, and a tax code that rewarded acquisition were built, on purpose, to convert a nation of exposed renters into a nation of owners with equity and a cushion. But the shield was also underwritten by an anomaly: the US was the one major industrial economy to emerge from the war unbombed. The policy was real; so was the tailwind that paid for it. The "owner's country" of the next section is that shield at its peak.</p>
+      </div>
     </div>
-    <div class="state-summary rv" id="stateSummary"></div>
-
-    <div class="metrics rv" id="metrics"></div>
-
-    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:0 0 6px">Funflation: when deferral stops paying out.</h3>
-    <p class="rv" style="color:#4c5260;margin:0 0 16px;max-width:72ch">When deferral stops paying out, spending reallocates to the present, and hope for the future thins at the same time. The 2020 response taught the lesson in miniature: the state met a shock by expanding its balance sheet roughly $4.6 trillion and reflating assets, which does little for anyone still trying to save in cash. If deferral is not rewarded and the future looks closed, spending now becomes the rational move. More fun today, and less reason to believe in tomorrow.</p>
-    <div class="funflation rv d1">
-      <div class="ff"><div class="n">66<small>%</small></div><div class="t">of spending buys access, not ownership. Postwar it was near 40%.</div></div>
-      <div class="ff"><div class="n">51<small>%</small></div><div class="t">now say the American Dream is out of reach for most people.</div></div>
-      <div class="ff"><div class="n">46<small>%</small></div><div class="t">do not expect to be financially prepared for retirement.</div></div>
-      <div class="ff"><div class="n">48<small>%</small></div><div class="t">think it likely they will outlive their savings.</div></div>
-    </div>
-
-    <h3 class="rv" style="font-family:var(--serif);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:56px 0 6px">The whole household, then and now.</h3>
-    <p class="rv" style="color:var(--muted);margin:0 0 24px;max-width:70ch">The left column is the culture that won the war. The right is the one that inherited it.</p>
-    <div class="dims rv" id="dims"></div>
-
-    <p class="pull rv d1" style="margin:44px auto 0;text-align:center;max-width:56ch">The one number that barely moved was homeownership, near 65% then and now. But it is propped up by cohorts who bought decades ago. <em>The rate held. The meaning did not.</em></p>
+    <p class="pull rv d2" style="margin-top:36px">Everything in the two sections before this is the slow <em>disassembly</em> of that shield. <em>Nobody repealed it. Maintenance was withdrawn.</em></p>
   </div>
 </section>
 
 <!-- ESCAPE / CLOSE -->
 <section class="section" id="escape">
   <div class="wrap">
-    <div class="kicker">07 &nbsp;/&nbsp; The turn</div>
+    <div class="kicker">08 &nbsp;/&nbsp; The escape</div>
     <h2>A foreclosed audience is sold shallower stories, and its behavior is the price.</h2>
     <p class="sub">When a household can no longer buy a future, it buys the present, on credit. The business model tracks the balance sheet. Advertiser, then subscription, then the advertiser quietly reinstalled inside the subscription, now holding an X-ray of you. The prize is no longer the title library. It is custody of the modeled human.</p>
 
@@ -663,9 +741,12 @@ em{font-style:italic}
       <div class="panel rv d1">
         <h3>Meaning lives in what stays illegible.</h3>
         <p>The machine manufactures its own antibody. <em>Backrooms</em>, the A24 film that 20-year-old Kane Parsons adapted from his own YouTube series (itself born from a 2019 message-board creepypasta), opened to about $81 million, the biggest debut in A24's history, and Gen Z drove it: more than 80% of the second-weekend crowd was under 35.</p>
+        <p><b>Now count the clock on it.</b> The creepypasta dates to 2019, the YouTube series to January 2022, and Parsons was signed to direct the feature at seventeen. He is now twenty-one, under contract at A24 for more <em>Backrooms</em>, in talks on a three-year first-look arrangement reported at around sixty-five million dollars, with Warner Bros. and HBO, NBCUniversal and Sony all pursuing him. Curry Barker, who made <em>Obsession</em> for under a million, followed the same path. <em>The illegible has a half-life, and it is getting shorter.</em> The window between a thing being unmodelable and a thing being under contract is now measured in a couple of years, which means the walk-out, left alone, does not function as an exit. <b>It functions as a farm system.</b></p>
+        <p>Which does not make it worthless. It makes the terms decisive. A defection that ends in a first-look deal has transferred custody of the next work to the acquirer; a defection that keeps ownership of the audience relationship has not. That is the same distinction the rest of this piece has been making about houses and households, applied one person at a time, and it is the only version of the walk-out that survives contact with a checkbook.</p>
         <p style="margin:0"><em>Obsession</em>, made by a YouTuber for under a million dollars, crossed $100 million and grew in both its second and third weekends. Consolidation is legibility. The audience is defecting to what cannot yet be modeled.</p>
       </div>
     </div>
+
 
     <div class="mythcard rv d1">
       <span class="badge">The paradox that makes it work</span>
@@ -682,7 +763,7 @@ em{font-style:italic}
       </div>
       <div class="r-item reg">
         <div class="rt">The regulator</div>
-        <p>The state, late and slowly, reimposes the restraint it withdrew. The Gilded Age trusts concentrated for thirty years before antitrust broke them; Standard Oil fell in 1911. The tools are stirring again: Live Nation was found an illegal monopoly, and twelve state attorneys general have already sued to block the Paramount and Warner deal. This exit is slow and political, and it depends on a public that still wants it.</p>
+        <p>The state, late and slowly, reimposes the restraint it withdrew. The Gilded Age trusts concentrated for thirty years before antitrust broke them; Standard Oil fell in 1911. The tools are stirring again: Live Nation was found an illegal monopoly, and the Warner merger is under a court order that has already pushed it past its own closing date. But read the caption on that carefully, because the identity of who did it matters more than the fact that it happened.</p>
       </div>
       <div class="r-item walk">
         <div class="rt">The walk-out</div>
@@ -690,6 +771,10 @@ em{font-style:italic}
       </div>
     </div>
     <p class="resolve-synth rv d2">The crash punishes the concentration. The regulator dismantles it. The walk-out starves it. This time, all three are visible at once.</p>
+
+    <div class="warning rv d1" style="background:#f4f1ff;border-color:#d9d0f2;color:#3a3060">
+      <b>Where stage six actually lives now.</b> Federal antitrust cleared the largest media merger ever proposed. What stopped it was twelve state attorneys general, a union, a consumer suit, and a shareholder action, in front of one district judge in Oakland, with the European Commission and the British culture secretary circling from outside. Meanwhile the same federal government that cleared this deal is the party that forced TikTok into American hands and effectively selected its custodian, handing the hosting and the retraining of the algorithm to Oracle. <b>Set those two facts beside each other and the regulator exit has not been captured so much as relocated.</b> The federal function has moved from restraining custody toward brokering it, and the restraining work has migrated to states, unions and private plaintiffs, who have standing and appetite but no power to write a national rule. That is a real exit and a weaker one, and it is worth adding that the pressure runs on a clock: Paramount owes Warner shareholders roughly seven million dollars a day in ticking fees once September 30 passes, which is precisely the kind of meter that turns delay into leverage.
+    </div>
     <div class="shortcut rv d2" style="margin-top:26px">
       <div class="sct">The fourth outcome, which is not an exit</div>
       <p>There is a fourth thing that can happen, and it is the one the three-exit frame hides. The crash can arrive and resolve <em>in favor of</em> the concentration. That is the bypass on the circuit: stage five running straight back into stage three, skipping the regulator entirely, because no constituency and no finished program were waiting to catch it.</p>
@@ -719,8 +804,8 @@ em{font-style:italic}
     <p class="rv" style="color:#4c5260;margin:0 0 14px;max-width:74ch">The ratchet is strong, but it is not absolute, and integrity requires the counterexample. From 1979 to 1982 Paul Volcker's Federal Reserve chose the hard path on purpose, pushing rates toward 20 percent and driving unemployment above 10 percent to break an inflation that had reached almost 15 percent. It worked, and it was pain accepted rather than deferred. That episode is the exception that shows how rarely the choice is made. The rest of the time the state reaches for reflation, and here is the part that matters for this argument: every reflation rescues whoever already owns the assets and does little for whoever holds only wages or cash. This is the distributional critique of the modern bailout, contested but well argued, and if it holds then the tool that prevents the crash is the same one that moved the country from owner to renter.</p>
     <p class="rv" style="margin:0 0 4px;max-width:74ch;color:#1a1d24"><b>The crash is still listed as an exit, but since 1971 the state has learned to convert it into a slow bleed instead.</b></p>
 
-    <h3 class="rv" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:72px 0 6px">Seven shapes of one instinct.</h3>
-    <p class="rv" style="color:#4c5260;margin:0 0 22px;max-width:72ch">Strip the eras away and the instinct is bare in the deal flow itself. Every recent media consolidation is a different corporate reflex making the same move: <em>get closer to customer behavior</em>. Seven forms, one prize.</p>
+    <h3 class="rv" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:72px 0 6px">Media M&amp;A in 2026: Seven shapes of one instinct.</h3>
+    <p class="rv" style="color:#4c5260;margin:0 0 22px;max-width:72ch">Strip the eras away and the instinct is bare in the deal flow itself. Every recent media consolidation is a different corporate reflex making the same move: <em style="color:var(--blue);font-weight:700">get closer to customer behavior</em>. Seven forms, one prize.</p>
     <div class="market rv d1">
       <div class="mkt-head"><span>Form</span><span>The deal (verified)</span><span>The data logic</span></div>
       <div class="mkt-row">
@@ -764,64 +849,61 @@ em{font-style:italic}
 
     <p class="pull rv" style="margin:56px auto 0;text-align:center;max-width:34ch;font-size:clamp(24px,3vw,40px)">We were sold a future while we could still buy one. Now we are sold the present, on credit, and <em>we are the asset.</em></p>
   </div>
+
 </section>
 
-<!-- COMPUTE (finale) -->
-<section class="section" id="compute">
+<!-- ADVERTISER / LOWEST COMMON DENOMINATOR -->
+<section class="section" id="advertiser">
   <div class="wrap">
-    <div class="panel finale rv" style="padding:34px 36px">
-      <div class="kicker">08 &nbsp;/&nbsp; The finale</div>
-      <h2 style="margin-bottom:18px">When compute ate culture.</h2>
-      <p class="sub" style="margin-bottom:14px">A fortune built selling databases now owns the studio that made <em>Casablanca</em>. The framing that this is a media story misses the point. It is a compute story, and the way it was paid for gives it away.</p>
-      <p class="sub" style="margin-bottom:6px">It did not begin with Paramount. For a decade the same money has moved in the same direction: fortunes built in software, cloud, search, and e-commerce, buying the institutions that make and hold culture.</p>
+    <div class="kicker">09 &nbsp;/&nbsp; The return of the advertiser</div>
+    <h2>An ad-supported culture bends toward the lowest common denominator.</h2>
+    <p class="sub">Every exit above assumes the content itself holds still. It does not. Once the advertiser is reinstalled inside the subscription, the economics of what gets made change, and they change in one direction.</p>
 
-      <div class="ctl-cap">Compute money buying culture, 2013 to now</div>
-      <div class="ctl rv d1">
-        <div class="ctl-item identity"><div class="ctl-yr">2013</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Jeff Bezos buys The Washington Post<span class="amt">$250M</span></div><div class="ctl-why">The Amazon and AWS founder buys a bleeding civic institution and rebuilds its data and engineering stack into a high-traffic subscriber engine. The proof of concept for everything that follows.</div></div></div>
-        <div class="ctl-item arena"><div class="ctl-yr">2014</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Ballmer buys the LA Clippers<span class="amt">$2B</span></div><div class="ctl-why">Microsoft's enterprise-software fortune lands in the NBA. Tech utility money moving into live physical monoculture.</div></div></div>
-        <div class="ctl-item identity"><div class="ctl-yr">2017</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Laurene Powell Jobs takes The Atlantic<span class="amt">majority stake</span></div><div class="ctl-why">Apple-scale wealth, through Emerson Collective, takes control of a magazine founded in 1857 and keeps a legacy narrative engine running.</div></div></div>
-        <div class="ctl-item identity"><div class="ctl-yr">2018</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Patrick Soon-Shiong buys the LA Times<span class="amt">~$500M</span></div><div class="ctl-why">A biotech and health-tech fortune rescues the West Coast's largest newsroom and anchors it to a science-IP portfolio.</div></div></div>
-        <div class="ctl-item identity"><div class="ctl-yr">2018</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Marc Benioff buys Time<span class="amt">$190M</span></div><div class="ctl-why">The Salesforce founder personally buys the nearly century-old newsweekly, a cloud SaaS titan taking custody of a legacy print brand.</div></div></div>
-        <div class="ctl-item arena"><div class="ctl-yr">2019</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Joe Tsai buys the Brooklyn Nets<span class="amt">$2.35B</span></div><div class="ctl-why">Alibaba's co-founder pays a U.S. sports record, marrying Chinese e-commerce and cloud wealth to NBA distribution.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">2020</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Spotify buys The Ringer<span class="amt">~$200M</span></div><div class="ctl-why">A streaming algorithm buys Bill Simmons's media empire. Software deciding not just how you listen, but which opinions lead.</div></div></div>
-        <div class="ctl-item arena"><div class="ctl-yr">2020</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Ryan Smith buys the Utah Jazz<span class="amt">$1.66B</span></div><div class="ctl-why">Qualtrics experience-software money buys the Jazz, then stands up the Utah Hockey Club in 2024, reshaping a region's sports culture.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">2021</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Naver acquires Wattpad<span class="amt">~$600M</span></div><div class="ctl-why">South Korea's search and e-commerce giant buys the largest web-fiction community, a database engine acquiring a narrative factory of Gen Z writers.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">2022</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Amazon acquires MGM<span class="amt">$8.45B</span></div><div class="ctl-why">AWS and e-commerce absorb nearly a century of Hollywood, the library pulled in mainly to drive Prime retention and feed the ad engine.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">2022</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Elon Musk buys Twitter<span class="amt">$44B</span></div><div class="ctl-why">The real-time public square becomes the core training set for xAI and its model Grok. A communication hub, revealed as an AI training ground.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">2023</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Microsoft buys Activision Blizzard<span class="amt">$68.7B</span></div><div class="ctl-why">The largest deal in gaming history absorbs Call of Duty and World of Warcraft, the social worlds where a generation forms its identity.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">now</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Tencent's global gaming roll-up<span class="amt">stakes + buys</span></div><div class="ctl-why">Stakes in Epic and FromSoftware and outright buys elsewhere let one internet and cloud giant steer interactive culture from the backend.</div></div></div>
-        <div class="ctl-item all"><div class="ctl-yr">2024&ndash;26</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Josh Kushner's Thrive Capital<span class="amt">Life &middot; A24 &middot; Giants</span></div><div class="ctl-why">The fund behind OpenAI and Stripe buys across all three classes at once: the Life brand through Bedford Media, a board seat at A24 after leading its $3.5 billion round, and a 2026 stake in the San Francisco Giants through Thrive Eternal, a vehicle built for cultural assets that technology cannot replicate.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">2024</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Skydance merges with Paramount<span class="amt">~$8B</span></div><div class="ctl-why">David Ellison takes Paramount, and roughly $6 billion of the price is his father Larry, the Oracle founder, underwriting the buy. A database dynasty acquiring a century of film.</div></div></div>
-        <div class="ctl-item"><div class="ctl-yr">2026</div><div class="ctl-rail"><span class="ctl-dot"></span></div><div class="ctl-c"><div class="ctl-deal">Paramount Skydance bids for Warner Bros.<span class="amt">~$110B</span></div><div class="ctl-why">The same move an order of magnitude larger. Larry Ellison backstops about $40 billion to fold Warner into the empire. As of July 2026 it faces a twelve-state lawsuit and has not closed.</div></div></div>
-      </div>
-      <div class="ctl-legend rv d2"><span><i class="dot d"></i>The asset is training data</span><span><i class="dot i"></i>The asset is influence</span><span><i class="dot a"></i>The asset is the live crowd</span><span><i class="dot all"></i>All three at once</span></div>
+    <p class="rv" style="color:#3a4049;margin:0 0 14px;max-width:76ch">A subscriber pays for the thing they wanted. An advertiser pays for the number of people who happened to be nearby. Those are different products. Subscription rewards <em>intensity</em>: make something a specific audience will pay to keep. Advertising rewards <em>tolerance</em>: make something the largest possible number of people will not turn off.</p>
 
-      <p class="sub" style="margin:18px 0 14px">Read as a list it looks like billionaires collecting trophies. Read as a balance sheet it is closer to one motion, compute money flowing into the institutions that make culture. Some of it is training data outright, the audio library, the fan-fiction archive, the game world, the live public feed that trains a model. Some is influence, and some is simply the most engaged crowd money can buy. The direction is the point. Paramount is where it stopped being a sideline and became the main event.</p>
+    <p class="rv" style="color:#3a4049;margin:0 0 22px;max-width:76ch">Tolerance is a lower bar than devotion, and it is cheaper to clear. It rewards the familiar premise, the recognizable face, the plot that survives being half-watched on a second screen. It punishes the slow, the specific and the strange, because those cost more and clear a smaller room. Nobody has to decide this. It is arithmetic, applied quarterly.</p>
 
-      <p class="sub" style="margin-bottom:14px">Look at the money. The original 2024 Skydance and Paramount deal was valued at about $8 billion, and roughly $6 billion of it was Larry Ellison, the Oracle founder, personally underwriting his son David's acquisition. It was less a media merger than a father buying his son a studio.</p>
-      <p class="sub" style="margin-bottom:14px">The Warner Bros. bid only sharpens the pattern. Paramount Skydance's roughly $110 billion move on Warner Bros. Discovery (about $81 billion in equity, near $110 billion including debt) became credible only once Larry Ellison agreed to personally backstop about $40 billion of the financing, after Warner's board worried Paramount was too thin to close. The same underwriting, one order of magnitude larger. As of July 2026 the deal has shareholder approval and Justice Department clearance, but faces a twelve-state lawsuit and EU and UK review, and has not closed.</p>
-
-      <div class="bignum-row">
-        <div class="bignum"><div class="n">$6<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">of the $8B initial Paramount deal was Larry Ellison underwriting his son</div></div>
-        <div class="bignum"><div class="n">$40<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">the financing Ellison later agreed to backstop for the Warner bid</div></div>
-        <div class="bignum"><div class="n">$110<small style="font-size:16px;font-weight:700;font-family:var(--sans);color:var(--muted)">B</small></div><div class="t">the Warner Bros. Discovery move, including debt</div></div>
-      </div>
-
-      <p class="sub" style="margin:22px 0 0">Why would database money want the studio that made <em>Casablanca</em>? Because the title library is no longer the asset. The asset is the audience the library assembles, rendered as a first-party, machine-legible record of behavior. Storage, identity, and compute are what price and steer that record. To this kind of capital, a studio is a very large, very loyal dataset with a back catalog attached.</p>
-      <p class="sub" style="margin:18px 0 0">And then, in 2025, the same fortune reached past the catalog for the engine itself. When Washington forced TikTok into American ownership, Larry Ellison's Oracle took a fifteen percent stake in the new US company, agreed to host its data, and began retraining its recommendation algorithm on its own cloud. A studio is a behavioral dataset with a back catalog attached. TikTok is the dataset with nothing attached at all, no library and no stars, only the record of what a hundred and seventy million people watch and the machine that predicts what they will want next. The man buying the history of film now curates the feed that decides what comes after it.</p>
+    <div class="ctl-cap">Who pays for mass indifference</div>
+    <div class="built rv d1">
+      <div class="bitem"><div class="bh">Snacks and sweetened drinks</div><div class="bs">High frequency, low differentiation, thin real difference between competitors. The purchase is habitual and the brand is settled by familiarity rather than by research.</div></div>
+      <div class="bitem"><div class="bh">Laundry detergent and cleaners</div><div class="bs">Nobody investigates detergent. Advertising in this category does not persuade anyone of anything. It maintains a default.</div></div>
+      <div class="bitem"><div class="bh">Pharmaceuticals</div><div class="bs">Direct-to-consumer drug advertising is lawful in only two countries on earth, the United States and New Zealand. One of them is the market being described here.</div></div>
+      <div class="bitem"><div class="bh">Cosmetics</div><div class="bs">Sold on aspiration and repetition rather than on any claim a buyer could test, to an audience the same system is already measuring.</div></div>
     </div>
 
-    <div class="finalquote rv d1">
-      <p>Content may be king, but distribution is certainly the kingdom, and today <em>computation is the currency that finances the empire.</em></p>
+    <p class="rv d1" style="color:#3a4049;margin:22px 0 0;max-width:76ch">These are the categories that can afford mass indifference, because their economics never required you to think. They require you to <em>remember</em>. An advertiser whose only job is to maintain a default does not want a demanding show. It wants a durable, low-friction one, and it will pay for precisely that and no more.</p>
+
+    <div class="shortcut rv d2">
+      <div class="sct">Where this rejoins the argument</div>
+      <p>The lowest common denominator is also <b>the most legible denominator</b>. A median audience watching predictable content is the cleanest training signal available: fewer outliers, more repetition, tighter confidence about what comes next. Difficult work produces difficult data. Optimizing content for the widest tolerance and optimizing it for machine prediction are not two strategies in tension. <b>They are one operation, run once, and billed to two different departments.</b></p>
+      <p>Which makes this stage four of the circuit wearing a friendlier face. Growth continues while its distribution narrows, and the audience settles the difference in attention it never priced.</p>
     </div>
+
+    <p class="rv d2" style="color:#3a4049;margin:24px 0 0;max-width:76ch">And the household on the receiving end is the one from the America section. A family that finances the present instead of saving for a future it no longer believes in is the ideal customer for small, frequent, immediately consumable comfort: the snack, the refill, the prescription, the cosmetic. Ad-supported culture is the delivery mechanism for exactly that pattern of spending, and that spending is what holds the balance sheet in place. Funflation is not only what the renter's country feels like from the inside. <b>It is the revenue model of the thing entertaining it.</b></p>
+
+    <div class="note rv d2"><b>Argument, not measurement.</b> The direction of the incentive is well documented; the claim that it produces any particular show is interpretation. Prestige work still gets made, frequently as a subscription acquisition cost rather than as an advertising product, which is itself the tell about who each one is built for.</div>
+
+    <h3 class="rv d2" style="font-family:var(--serif);font-size:30px;font-weight:900;letter-spacing:-.04em;margin:54px 0 8px">What would prove this wrong.</h3>
+    <p class="rv d2" style="color:#3a4049;margin:0 0 16px;max-width:76ch">An argument that cannot be falsified is a mood. So here is the list, and any one of these would break the thesis rather than dent it.</p>
+    <div class="built rv d2">
+      <div class="bitem"><div class="bh">Behavioral records depreciate</div><div class="bs">If models keep commoditizing, the moat is compute and distribution rather than proprietary history, and the catalog buyers overpaid for an asset that spoils. Watch whether anyone re-licenses a five-year-old behavioral corpus at a premium.</div></div>
+      <div class="bitem"><div class="bh">The identity plumbing degrades</div><div class="bs">The unified first-party record is an engineering achievement, not a law of nature. Enough privacy statute, platform change or plain measurement failure and the record fragments, at which point the deals were conglomerate empire-building in a costume.</div></div>
+      <div class="bitem"><div class="bh">The returns look like 2000</div><div class="bs">AOL and Time Warner also had a coherent data thesis. If integration costs and debt service swamp whatever the record is worth, this wave gets filed under merger folly and the compute framing was decoration on an old mistake.</div></div>
+      <div class="bitem"><div class="bh">The custody question gets settled against them</div><div class="bs">If courts, statute or the copyright agencies establish that training on covered work requires consent and payment, every catalog reprices upward overnight and the leverage inverts. This is the live one.</div></div>
+      <div class="bitem"><div class="bh">People turn out not to be steerable</div><div class="bs">The eighth rung assumes conduct is manufacturable at scale. If prediction plateaus at describing what people would have done anyway, then the whole apparatus is an expensive mirror and behavior was never the prize.</div></div>
+    </div>
+    <div class="note rv d2">The honest read on the balance of these: the first three are wagers about price, and the market will settle them without anyone's help. The fourth is the only one a person can act on, which is why the custody fight matters more than the merger fight. The fifth is the one nobody can test yet, and it is the reason this section exists.</div>
+
+    <p class="pull rv d2" style="margin:44px auto 0;text-align:center;max-width:40ch;font-size:clamp(24px,3vw,40px)">Cheap content, sold to a foreclosed household, produces the cleanest possible record of what that household will do next. <em>That is not three problems. It is one circuit.</em></p>
   </div>
 
   <div class="wrap">
     <footer class="footer">
-      <p>A companion to the keynote <em>When Compute Ate Culture</em>. Deal facts (Skydance and Paramount financing; the Warner Bros. Discovery bid, its approvals, and the July 2026 multi-state lawsuit; the <em>Backrooms</em> origin and box office) were verified against press reporting in July 2026. Household figures draw on the NY Fed Household Debt and Credit report, USDA food-expenditure data, CDC and NCHS fertility data, the Gallup church-membership series, and standard income, wealth, and healthcare-share estimates; several are rounded. Historical cases are illustrative, each a documented instance of the deregulation, boom, and reconsolidation cycle; the CIA cultural case is flagged as adjacent for that reason. Interpretation is the author's own.</p>
+      <p>A companion to the keynote <em>When Compute Ate Culture</em>. Deal facts (Skydance and Paramount financing; the Warner Bros. Discovery bid, its approvals, and the July 2026 multi-state lawsuit; the <em>Backrooms</em> origin and box office) were verified against press reporting in July 2026. Household figures draw on the NY Fed Household Debt and Credit report, USDA food-expenditure data, CDC and NCHS fertility data, the Gallup church-membership series, and standard income, wealth, and healthcare-share estimates; several are rounded. Historical cases are illustrative, each a documented instance of the deregulation, boom, and reconsolidation cycle; the CIA cultural case is flagged as adjacent for that reason. Court status of the Warner transaction (the July 20, 2026 restraining order, its extension to August 17, and the agreed postponement until after trial), the 2026 WGA, SAG-AFTRA and DGA bargaining outcomes, the Federal Reserve's July 2026 hold at 3.50 to 3.75 percent, and the Kane Parsons first-look negotiations were verified against press reporting on July 30, 2026, and are live situations that will move. Interpretation is the author's own.</p>
     </footer>
   </div>
 </section>
+
 
 <script>
 /* ---------- ladder data ---------- */
@@ -991,15 +1073,15 @@ EX.forEach(function(e){
 
 /* ---------- america: metrics ---------- */
 var METRICS=[
- {label:"Household debt to income",unit:"%",max:120,up:true,
+ {label:"Household debt to income",unit:"%",max:100,up:true,
    then:{val:32,foot:"Debt was an on-ramp to equity."},
    now:{val:100,foot:"$18.8T total; about $1.3T on cards near 21%."},
    both:"32% to 100%. Borrowing flipped from building equity to funding consumption."},
- {label:"Top 10% share of income",unit:"%",max:60,up:true,
+ {label:"Top 10% share of income",unit:"%",max:100,up:true,
    then:{val:33,foot:"A broad middle held most of the gains."},
    now:{val:48,foot:"Near a century-high concentration."},
    both:"33% to 48%. The gains re-pooled at the top."},
- {label:"Healthcare as share of the economy",unit:"%",max:20,up:true,
+ {label:"Healthcare as share of the economy",unit:"%",max:100,up:true,
    then:{val:4,foot:"A cost that barely registered."},
    now:{val:17,foot:"A leading cause of household bankruptcy."},
    both:"4% to 17%. A private tax that grew roughly fourfold."},
@@ -1131,3 +1213,4 @@ targets.forEach(function(t){if(t)sObs.observe(t);});
 </script>
 </body>
 </html>
+
